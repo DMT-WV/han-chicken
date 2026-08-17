@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>한치킨 전지점 주별 판매 비교</title>
+<style>
+:root{--navy:#17365D;--blue:#2F75B5;--gold:#F4B400;--bg:#F5F7FA;--line:#E5E7EB;--muted:#6B7280}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);font-family:Arial,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:#1F2937}
+.page{max-width:1550px;margin:auto;padding:24px}
+.hero{background:linear-gradient(135deg,#17365D,#2F75B5);color:white;padding:22px 26px;border-radius:15px}
+.hero h1{margin:0 0 6px;font-size:27px} .hero p{margin:0;font-size:13px;opacity:.9}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:15px 0}
+.kpi,.section{background:#fff;border:1px solid var(--line);border-radius:13px}
+.kpi{padding:14px 16px} .kpi small{color:var(--muted);font-weight:700} .kpi strong{display:block;font-size:21px;color:var(--navy);margin-top:5px}
+.section{padding:18px;margin-bottom:16px}
+.head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px}
+h2{margin:0;color:var(--navy);font-size:18px} .desc{font-size:11px;color:var(--muted);margin-top:3px}
+.controls{display:flex;gap:7px} .btn{border:1px solid #CBD5E1;background:#fff;padding:7px 11px;border-radius:8px;font-weight:700;font-size:11px;cursor:pointer}
+.btn.active{background:var(--navy);color:white;border-color:var(--navy)}
+.chartbox{height:510px;border:1px solid #EEF1F4;border-radius:10px;padding:8px}
+svg{width:100%;height:100%;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;justify-content:center;gap:18px;margin-top:10px;font-size:12px;font-weight:700}
+.legend i{display:inline-block;width:18px;height:3px;vertical-align:middle;margin-right:6px;border-radius:2px}
+.store-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}
+.store-card{border:1px solid #E5E7EB;border-radius:11px;padding:12px}
+.store-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px}
+.store-name{font-weight:800;color:var(--navy);font-size:16px} .store-meta{font-size:10px;color:var(--muted)}
+.store-chart{height:245px}
+.table-wrap{overflow-x:auto} table{width:100%;min-width:1180px;border-collapse:collapse;font-size:10px}
+th,td{border:1px solid #CDD2D8;text-align:center;padding:7px 5px} thead th{background:#D9E2F3} tbody th{background:#F3F4F6}
+td b{display:block} td span{display:block;color:#4B5563;margin-top:2px} .total{background:#FFF2CC}
+.insights{display:grid;grid-template-columns:repeat(2,1fr);gap:9px} .insight{background:#F8FAFC;border-left:4px solid #2F75B5;padding:10px 12px;border-radius:8px;font-size:12px;line-height:1.5}
+@media(max-width:900px){.kpis{grid-template-columns:repeat(2,1fr)}.store-grid{grid-template-columns:1fr}.insights{grid-template-columns:1fr}}
+@page{size:A4 landscape;margin:8mm}
+@media print{
+ body{background:white} .page{padding:0;max-width:none} .hero{padding:11px 15px;border-radius:0} .hero h1{font-size:19px}
+ .kpis{margin:6px 0;gap:5px} .kpi{padding:6px 8px} .kpi strong{font-size:14px}
+ .section{padding:8px;border-radius:0;margin-bottom:6px;break-inside:avoid} .controls{display:none}
+ .chartbox{height:300px} .store-grid{grid-template-columns:repeat(2,1fr);gap:5px} .store-card{padding:6px} .store-chart{height:155px}
+ table{min-width:0;font-size:7px} th,td{padding:3px 2px} .insight{font-size:8.5px;padding:5px 7px}
+}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="hero"><h1>전지점 한치킨 주별 판매 비교</h1><p>전체 통합 그래프 + 지점별 상세 그래프 · 모든 데이터 포인트 Value 표시</p></div>
+
+<div class="kpis">
+<div class="kpi"><small>누적 판매량</small><strong>3,631개</strong></div>
+<div class="kpi"><small>누적 판매액</small><strong>$36,245</strong></div>
+<div class="kpi"><small>누적 1위</small><strong>LGY · $13,779</strong></div>
+<div class="kpi"><small>최근 주 1위</small><strong>LGY · $1,688</strong></div>
+</div>
+
+<section class="section">
+<div class="head">
+<div><h2>전지점 통합 비교 그래프</h2><div class="desc">5개 지점의 모든 주간 Value를 그래프에 직접 표시함</div></div>
+<div class="controls"><button class="btn active" data-mode="sales">판매액</button><button class="btn" data-mode="qty">판매량</button></div>
+</div>
+<div class="chartbox" id="combinedChart"></div>
+<div class="legend" id="legend"></div>
+</section>
+
+<section class="section">
+<div class="head"><div><h2>지점별 상세 그래프</h2><div class="desc">각 지점 흐름과 Value를 개별 그래프에서 확인함</div></div></div>
+<div class="store-grid" id="storeGrid"></div>
+</section>
+
+<section class="section">
+<div class="head"><div><h2>주별 판매 테이블</h2><div class="desc">각 셀 위 = 판매량 / 아래 = 판매액</div></div></div>
+<div class="table-wrap"><table>
+<thead><tr><th>지점</th><th>6/14-6/20</th><th>6/21-6/27</th><th>6/28-7/4</th><th>7/5-7/11</th><th>7/12-7/18</th><th>7/19-7/25</th><th>7/26-8/1</th><th>8/2-8/8</th><th>8/9-8/15</th><th style="background:#F4B400">Total</th></tr></thead>
+<tbody><tr><th>BBY</th><td><b>143</b><span>$1,429</span></td><td><b>112</b><span>$1,119</span></td><td><b>118</b><span>$1,179</span></td><td><b>127</b><span>$1,269</span></td><td><b>107</b><span>$1,069</span></td><td><b>112</b><span>$1,119</span></td><td><b>105</b><span>$1,049</span></td><td><b>117</b><span>$1,169</span></td><td><b>115</b><span>$1,149</span></td><td class='total'><b>1,056</b><span>$10,551</span></td></tr><tr><th>SRY</th><td><b>57</b><span>$559</span></td><td><b>50</b><span>$500</span></td><td><b>45</b><span>$450</span></td><td><b>54</b><span>$539</span></td><td><b>39</b><span>$390</span></td><td><b>37</b><span>$370</span></td><td><b>62</b><span>$619</span></td><td><b>93</b><span>$929</span></td><td><b>95</b><span>$949</span></td><td class='total'><b>532</b><span>$5,305</span></td></tr><tr><th>LGY</th><td><b>105</b><span>$1,049</span></td><td><b>153</b><span>$1,527</span></td><td><b>239</b><span>$2,381</span></td><td><b>169</b><span>$1,688</span></td><td><b>103</b><span>$1,029</span></td><td><b>141</b><span>$1,408</span></td><td><b>140</b><span>$1,392</span></td><td><b>162</b><span>$1,617</span></td><td><b>169</b><span>$1,688</span></td><td class='total'><b>1,381</b><span>$13,779</span></td></tr><tr><th>ROB</th><td><b>0</b><span>$0</span></td><td><b>24</b><span>$240</span></td><td><b>19</b><span>$190</span></td><td><b>46</b><span>$460</span></td><td><b>61</b><span>$609</span></td><td><b>67</b><span>$668</span></td><td><b>66</b><span>$659</span></td><td><b>68</b><span>$679</span></td><td><b>66</b><span>$659</span></td><td class='total'><b>417</b><span>$4,164</span></td></tr><tr><th>MET</th><td><b>8</b><span>$79</span></td><td><b>44</b><span>$440</span></td><td><b>43</b><span>$427</span></td><td><b>27</b><span>$270</span></td><td><b>24</b><span>$240</span></td><td><b>22</b><span>$220</span></td><td><b>28</b><span>$280</span></td><td><b>25</b><span>$250</span></td><td><b>24</b><span>$240</span></td><td class='total'><b>245</b><span>$2,446</span></td></tr></tbody>
+</table></div>
+</section>
+
+<section class="section">
+<div class="head"><div><h2>핵심 인사이트</h2></div></div>
+<div class="insights">
+<div class="insight"><b>LGY:</b> 누적 $13,779로 전지점 1위. 6/28–7/4에는 $2,381까지 상승하며 가장 높은 피크를 기록함.</div>
+<div class="insight"><b>BBY:</b> 주간 매출이 대부분 $1,000 이상에서 유지되어 가장 안정적인 판매 기반을 형성함.</div>
+<div class="insight"><b>SRY:</b> 7월 말부터 상승세가 강해졌으며 최근 2주 $929 → $949로 $900대를 유지함.</div>
+<div class="insight"><b>ROB:</b> 초기 판매 없음 이후 빠르게 안착하여 최근에는 약 $650~$680 수준으로 안정화됨.</div>
+<div class="insight"><b>MET:</b> 6월 말 $400대 이후 최근 $200대 중반으로 정체되어 추가 판매 활성화 여지가 있음.</div>
+<div class="insight"><b>전체 비교:</b> 통합 그래프에서 LGY의 우위, SRY의 최근 상승, BBY의 안정성, ROB의 안착, MET의 정체를 동시에 확인할 수 있음.</div>
+</div>
+</section>
+</div>
+
+<script>
+const D={"weeks": ["6/14-6/20", "6/21-6/27", "6/28-7/4", "7/5-7/11", "7/12-7/18", "7/19-7/25", "7/26-8/1", "8/2-8/8", "8/9-8/15"], "stores": ["BBY", "SRY", "LGY", "ROB", "MET"], "qty": {"BBY": [143, 112, 118, 127, 107, 112, 105, 117, 115], "SRY": [57, 50, 45, 54, 39, 37, 62, 93, 95], "LGY": [105, 153, 239, 169, 103, 141, 140, 162, 169], "ROB": [0, 24, 19, 46, 61, 67, 66, 68, 66], "MET": [8, 44, 43, 27, 24, 22, 28, 25, 24]}, "sales": {"BBY": [1429, 1119, 1179, 1269, 1069, 1119, 1049, 1169, 1149], "SRY": [559, 500, 450, 539, 390, 370, 619, 929, 949], "LGY": [1049, 1527, 2381, 1688, 1029, 1408, 1392, 1617, 1688], "ROB": [0, 240, 190, 460, 609, 668, 659, 679, 659], "MET": [79, 440, 427, 270, 240, 220, 280, 250, 240]}, "storeQty": {"BBY": 1056, "SRY": 532, "LGY": 1381, "ROB": 417, "MET": 245}, "storeSales": {"BBY": 10551, "SRY": 5305, "LGY": 13779, "ROB": 4164, "MET": 2446}};
+const COLORS={BBY:"#2F75B5",SRY:"#ED7D31",LGY:"#70AD47",ROB:"#A64D79",MET:"#7F8C8D"};
+let mode="sales";
+
+function f(v){return mode==="sales" ? "$"+v.toLocaleString() : v.toLocaleString();}
+
+function combined(){
+ const box=document.getElementById("combinedChart"), W=1250,H=480,p={l:70,r:40,t:38,b:55};
+ const all=D.stores.flatMap(s=>D[mode][s]), mx=Math.max(...all)*1.18 || 1;
+ const x=i=>p.l+(W-p.l-p.r)*i/(D.weeks.length-1), y=v=>p.t+(H-p.t-p.b)*(mx-v)/mx;
+ let svg=`<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">`;
+ for(let k=0;k<=5;k++){let val=mx*k/5, yy=y(val);svg+=`<line x1="${p.l}" y1="${yy}" x2="${W-p.r}" y2="${yy}" stroke="#E5E7EB"/><text x="${p.l-9}" y="${yy+4}" text-anchor="end" font-size="11" fill="#6B7280">${f(Math.round(val))}</text>`;}
+ D.weeks.forEach((w,i)=>svg+=`<text x="${x(i)}" y="${H-18}" text-anchor="middle" font-size="11" fill="#6B7280">${w}</text>`);
+ D.stores.forEach((s,si)=>{
+   const vals=D[mode][s], pts=vals.map((v,i)=>`${x(i)},${y(v)}`).join(" ");
+   svg+=`<polyline points="${pts}" fill="none" stroke="${COLORS[s]}" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>`;
+   vals.forEach((v,i)=>{
+     const offset = [-12,15,-23,27,6][si];
+     svg+=`<circle cx="${x(i)}" cy="${y(v)}" r="4" fill="${COLORS[s]}" stroke="white" stroke-width="1.5"/>
+     <text x="${x(i)}" y="${y(v)+offset}" text-anchor="middle" font-size="9.5" font-weight="700" fill="${COLORS[s]}" paint-order="stroke" stroke="white" stroke-width="3">${f(v)}</text>`;
+   });
+ });
+ svg+="</svg>"; box.innerHTML=svg;
+ document.getElementById("legend").innerHTML=D.stores.map(s=>`<span><i style="background:${COLORS[s]}"></i>${s}</span>`).join("");
+}
+
+function oneChart(s){
+ const vals=D[mode][s], W=600,H=230,p={l:45,r:20,t:28,b:43}, mx=Math.max(...vals)*1.18 || 1;
+ const x=i=>p.l+(W-p.l-p.r)*i/(vals.length-1), y=v=>p.t+(H-p.t-p.b)*(mx-v)/mx;
+ let svg=`<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">`;
+ for(let k=0;k<=4;k++){let val=mx*k/4,yy=y(val);svg+=`<line x1="${p.l}" y1="${yy}" x2="${W-p.r}" y2="${yy}" stroke="#E5E7EB"/>`;}
+ D.weeks.forEach((w,i)=>svg+=`<text x="${x(i)}" y="${H-12}" text-anchor="middle" font-size="8.5" fill="#6B7280">${w.replace("6/","").replace("7/","").replace("8/","")}</text>`);
+ const pts=vals.map((v,i)=>`${x(i)},${y(v)}`).join(" ");
+ svg+=`<polyline points="${pts}" fill="none" stroke="${COLORS[s]}" stroke-width="3" stroke-linejoin="round"/>`;
+ vals.forEach((v,i)=>svg+=`<circle cx="${x(i)}" cy="${y(v)}" r="3.5" fill="${COLORS[s]}"/><text x="${x(i)}" y="${y(v)-9}" text-anchor="middle" font-size="9.5" font-weight="700" fill="#374151" paint-order="stroke" stroke="white" stroke-width="3">${f(v)}</text>`);
+ svg+="</svg>"; return svg;
+}
+
+function individual(){
+ document.getElementById("storeGrid").innerHTML=D.stores.map(s=>{
+   const vals=D[mode][s], total=mode==="sales"?D.storeSales[s]:D.storeQty[s];
+   const peak=Math.max(...vals), pw=D.weeks[vals.indexOf(peak)];
+   return `<div class="store-card"><div class="store-head"><div class="store-name">${s}</div><div class="store-meta">누적 <b>${f(total)}</b> · Peak ${pw} <b>${f(peak)}</b></div></div><div class="store-chart">${oneChart(s)}</div></div>`;
+ }).join("");
+}
+
+function render(){combined();individual();}
+document.querySelectorAll(".btn").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".btn").forEach(x=>x.classList.remove("active"));b.classList.add("active");mode=b.dataset.mode;render();}));
+render();
+</script>
+</body></html>
