@@ -8,38 +8,38 @@
 :root{--navy:#17365D;--blue:#2F75B5;--gold:#F4B400;--bg:#F5F7FA;--line:#E5E7EB;--muted:#6B7280}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);font-family:Arial,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:#1F2937}
-.page{max-width:1550px;margin:auto;padding:24px}
-.hero{background:linear-gradient(135deg,#17365D,#2F75B5);color:white;padding:22px 26px;border-radius:15px}
-.hero h1{margin:0 0 6px;font-size:27px} .hero p{margin:0;font-size:13px;opacity:.9}
-.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:15px 0}
+.page{max-width:1750px;margin:auto;padding:32px}
+.hero{background:linear-gradient(135deg,#17365D,#2F75B5);color:white;padding:30px 34px;border-radius:15px}
+.hero h1{margin:0 0 6px;font-size:34px} .hero p{margin:0;font-size:17px;opacity:.95}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:20px 0}
 .kpi,.section{background:#fff;border:1px solid var(--line);border-radius:13px}
-.kpi{padding:14px 16px} .kpi small{color:var(--muted);font-weight:700} .kpi strong{display:block;font-size:21px;color:var(--navy);margin-top:5px}
-.section{padding:18px;margin-bottom:16px}
+.kpi{padding:20px 22px} .kpi small{color:var(--muted);font-weight:700} .kpi strong{display:block;font-size:28px;color:var(--navy);margin-top:5px}
+.section{padding:24px;margin-bottom:20px}
 .head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px}
-h2{margin:0;color:var(--navy);font-size:18px} .desc{font-size:11px;color:var(--muted);margin-top:3px}
-.controls{display:flex;gap:7px} .btn{border:1px solid #CBD5E1;background:#fff;padding:7px 11px;border-radius:8px;font-weight:700;font-size:11px;cursor:pointer}
+h2{margin:0;color:var(--navy);font-size:24px} .desc{font-size:15px;color:var(--muted);margin-top:5px}
+.controls{display:flex;gap:7px} .btn{border:1px solid #CBD5E1;background:#fff;padding:10px 16px;border-radius:8px;font-weight:700;font-size:14px;cursor:pointer}
 .btn.active{background:var(--navy);color:white;border-color:var(--navy)}
-.chartbox{height:510px;border:1px solid #EEF1F4;border-radius:10px;padding:8px}
+.chartbox{height:620px;border:1px solid #EEF1F4;border-radius:10px;padding:8px}
 svg{width:100%;height:100%;overflow:visible}
-.legend{display:flex;flex-wrap:wrap;justify-content:center;gap:18px;margin-top:10px;font-size:12px;font-weight:700}
+.legend{display:flex;flex-wrap:wrap;justify-content:center;gap:18px;margin-top:10px;font-size:21px;font-weight:700}
 .legend i{display:inline-block;width:18px;height:3px;vertical-align:middle;margin-right:6px;border-radius:2px}
-.store-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}
-.store-card{border:1px solid #E5E7EB;border-radius:11px;padding:12px}
+.store-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.store-card{border:1px solid #E5E7EB;border-radius:11px;padding:18px}
 .store-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px}
-.store-name{font-weight:800;color:var(--navy);font-size:16px} .store-meta{font-size:10px;color:var(--muted)}
-.store-chart{height:245px}
+.store-name{font-weight:800;color:var(--navy);font-size:21px} .store-meta{font-size:14px;color:var(--muted)}
+.store-chart{height:320px}
 .table-wrap{overflow-x:auto} table{width:100%;min-width:1180px;border-collapse:collapse;font-size:10px}
-th,td{border:1px solid #CDD2D8;text-align:center;padding:7px 5px} thead th{background:#D9E2F3} tbody th{background:#F3F4F6}
+th,td{border:1px solid #CDD2D8;text-align:center;padding:10px 7px} thead th{background:#D9E2F3} tbody th{background:#F3F4F6}
 td b{display:block} td span{display:block;color:#4B5563;margin-top:2px} .total{background:#FFF2CC}
-.insights{display:grid;grid-template-columns:repeat(2,1fr);gap:9px} .insight{background:#F8FAFC;border-left:4px solid #2F75B5;padding:10px 12px;border-radius:8px;font-size:12px;line-height:1.5}
+.insights{display:grid;grid-template-columns:repeat(2,1fr);gap:9px} .insight{background:#F8FAFC;border-left:4px solid #2F75B5;padding:15px 17px;border-radius:8px;font-size:16px;line-height:1.65}
 @media(max-width:900px){.kpis{grid-template-columns:repeat(2,1fr)}.store-grid{grid-template-columns:1fr}.insights{grid-template-columns:1fr}}
 @page{size:A4 landscape;margin:8mm}
 @media print{
  body{background:white} .page{padding:0;max-width:none} .hero{padding:11px 15px;border-radius:0} .hero h1{font-size:19px}
  .kpis{margin:6px 0;gap:5px} .kpi{padding:6px 8px} .kpi strong{font-size:14px}
  .section{padding:8px;border-radius:0;margin-bottom:6px;break-inside:avoid} .controls{display:none}
- .chartbox{height:300px} .store-grid{grid-template-columns:repeat(2,1fr);gap:5px} .store-card{padding:6px} .store-chart{height:155px}
- table{min-width:0;font-size:7px} th,td{padding:3px 2px} .insight{font-size:8.5px;padding:5px 7px}
+ .chartbox{height:360px} .store-grid{grid-template-columns:repeat(2,1fr);gap:5px} .store-card{padding:6px} .store-chart{height:210px}
+ table{min-width:0;font-size:9px} th,td{padding:3px 2px} .insight{font-size:11px;padding:7px 9px}
 }
 </style>
 </head>
@@ -97,19 +97,19 @@ let mode="sales";
 function f(v){return mode==="sales" ? "$"+v.toLocaleString() : v.toLocaleString();}
 
 function combined(){
- const box=document.getElementById("combinedChart"), W=1250,H=480,p={l:70,r:40,t:38,b:55};
+ const box=document.getElementById("combinedChart"), W=1250,H=560,p={l:70,r:40,t:38,b:55};
  const all=D.stores.flatMap(s=>D[mode][s]), mx=Math.max(...all)*1.18 || 1;
  const x=i=>p.l+(W-p.l-p.r)*i/(D.weeks.length-1), y=v=>p.t+(H-p.t-p.b)*(mx-v)/mx;
  let svg=`<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">`;
- for(let k=0;k<=5;k++){let val=mx*k/5, yy=y(val);svg+=`<line x1="${p.l}" y1="${yy}" x2="${W-p.r}" y2="${yy}" stroke="#E5E7EB"/><text x="${p.l-9}" y="${yy+4}" text-anchor="end" font-size="11" fill="#6B7280">${f(Math.round(val))}</text>`;}
- D.weeks.forEach((w,i)=>svg+=`<text x="${x(i)}" y="${H-18}" text-anchor="middle" font-size="11" fill="#6B7280">${w}</text>`);
+ for(let k=0;k<=5;k++){let val=mx*k/5, yy=y(val);svg+=`<line x1="${p.l}" y1="${yy}" x2="${W-p.r}" y2="${yy}" stroke="#E5E7EB"/><text x="${p.l-9}" y="${yy+4}" text-anchor="end" font-size="14" fill="#6B7280">${f(Math.round(val))}</text>`;}
+ D.weeks.forEach((w,i)=>svg+=`<text x="${x(i)}" y="${H-18}" text-anchor="middle" font-size="14" fill="#6B7280">${w}</text>`);
  D.stores.forEach((s,si)=>{
    const vals=D[mode][s], pts=vals.map((v,i)=>`${x(i)},${y(v)}`).join(" ");
    svg+=`<polyline points="${pts}" fill="none" stroke="${COLORS[s]}" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>`;
    vals.forEach((v,i)=>{
-     const offset = [-12,15,-23,27,6][si];
+     const offset = [-18,22,-30,34,8][si];
      svg+=`<circle cx="${x(i)}" cy="${y(v)}" r="4" fill="${COLORS[s]}" stroke="white" stroke-width="1.5"/>
-     <text x="${x(i)}" y="${y(v)+offset}" text-anchor="middle" font-size="9.5" font-weight="700" fill="${COLORS[s]}" paint-order="stroke" stroke="white" stroke-width="3">${f(v)}</text>`;
+     <text x="${x(i)}" y="${y(v)+offset}" text-anchor="middle" font-size="13" font-weight="700" fill="${COLORS[s]}" paint-order="stroke" stroke="white" stroke-width="3">${f(v)}</text>`;
    });
  });
  svg+="</svg>"; box.innerHTML=svg;
@@ -117,14 +117,14 @@ function combined(){
 }
 
 function oneChart(s){
- const vals=D[mode][s], W=600,H=230,p={l:45,r:20,t:28,b:43}, mx=Math.max(...vals)*1.18 || 1;
+ const vals=D[mode][s], W=600,H=290,p={l:45,r:20,t:28,b:43}, mx=Math.max(...vals)*1.18 || 1;
  const x=i=>p.l+(W-p.l-p.r)*i/(vals.length-1), y=v=>p.t+(H-p.t-p.b)*(mx-v)/mx;
  let svg=`<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">`;
  for(let k=0;k<=4;k++){let val=mx*k/4,yy=y(val);svg+=`<line x1="${p.l}" y1="${yy}" x2="${W-p.r}" y2="${yy}" stroke="#E5E7EB"/>`;}
- D.weeks.forEach((w,i)=>svg+=`<text x="${x(i)}" y="${H-12}" text-anchor="middle" font-size="8.5" fill="#6B7280">${w.replace("6/","").replace("7/","").replace("8/","")}</text>`);
+ D.weeks.forEach((w,i)=>svg+=`<text x="${x(i)}" y="${H-12}" text-anchor="middle" font-size="11" fill="#6B7280">${w.replace("6/","").replace("7/","").replace("8/","")}</text>`);
  const pts=vals.map((v,i)=>`${x(i)},${y(v)}`).join(" ");
  svg+=`<polyline points="${pts}" fill="none" stroke="${COLORS[s]}" stroke-width="3" stroke-linejoin="round"/>`;
- vals.forEach((v,i)=>svg+=`<circle cx="${x(i)}" cy="${y(v)}" r="3.5" fill="${COLORS[s]}"/><text x="${x(i)}" y="${y(v)-9}" text-anchor="middle" font-size="9.5" font-weight="700" fill="#374151" paint-order="stroke" stroke="white" stroke-width="3">${f(v)}</text>`);
+ vals.forEach((v,i)=>svg+=`<circle cx="${x(i)}" cy="${y(v)}" r="3.5" fill="${COLORS[s]}"/><text x="${x(i)}" y="${y(v)-9}" text-anchor="middle" font-size="13" font-weight="700" fill="#374151" paint-order="stroke" stroke="white" stroke-width="3">${f(v)}</text>`);
  svg+="</svg>"; return svg;
 }
 
