@@ -50,7 +50,7 @@ td b{display:block;font-size:15px} td span{display:block;color:#4B5563;margin-to
 <div class="page">
 <div class="hero">
   <h1>전지점 한치킨 주별 판매 비교</h1>
-  <p>2026.06.14 – 2026.08.22 · 8/16–8/22 신규 주차 반영 · 전체 통합 그래프 + 지점별 상세 그래프</p>
+  <p>2026.06.14 – 2026.08.22 주간 실적 + 8/24 월요일 일일 판매량 반영 · 전체 통합 그래프 + 지점별 상세 그래프</p>
 </div>
 
 <div class="kpis">
@@ -74,6 +74,30 @@ td b{display:block;font-size:15px} td span{display:block;color:#4B5563;margin-to
 <div class="head"><div><h2>지점별 상세 그래프</h2><div class="desc">각 지점의 주간 Value와 8/16–8/22 변화까지 개별 확인</div></div></div>
 <div class="store-grid" id="storeGrid"></div>
 </section>
+
+
+<section class="section">
+<div class="head"><div><h2>8/24 월요일 판매 현황 <span style="font-size:15px;color:#B45309">(신규 주차 · 1일 실적)</span></h2>
+<div class="desc">8/24 하루 판매량만 반영 · 기존 주간 데이터와 혼합하지 않고 별도 표시</div></div></div>
+<div style="display:grid;grid-template-columns:1.1fr 1.9fr;gap:22px">
+<div style="border:1px solid #E5E7EB;border-radius:12px;padding:18px">
+<div style="font-size:15px;color:#6B7280;font-weight:700">8/24 TOTAL QTY</div>
+<div style="font-size:46px;font-weight:900;color:#17365D;margin:8px 0">60개</div>
+<div style="font-size:17px;line-height:1.6"><b>MET 31개</b>로 전체의 <b>51.7%</b>를 차지하며 1위.<br>ROB 10개 → LGY 8개 → BBY 6개 → SRY 5개 순.</div>
+<div style="margin-top:14px;padding:10px;background:#FFF7D6;border-radius:8px;font-size:13px">※ 제공 자료에는 판매수량(Qty)만 있어 판매액은 임의 계산하지 않았습니다.</div>
+</div>
+<div style="border:1px solid #E5E7EB;border-radius:12px;padding:18px"><div id="dailyChart" style="height:285px"></div></div>
+</div>
+<div class="table-wrap" style="margin-top:18px"><table style="min-width:0;max-width:760px">
+<thead><tr><th>지점</th><th>8/24 판매량</th><th>구성비</th></tr></thead>
+<tbody>
+<tr><th>BBY</th><td>6개</td><td>10.0%</td></tr>
+<tr><th>SRY</th><td>5개</td><td>8.3%</td></tr>
+<tr><th>ROB</th><td>10개</td><td>16.7%</td></tr>
+<tr><th>LGY</th><td>8개</td><td>13.3%</td></tr>
+<tr><th>MET</th><td>31개</td><td>51.7%</td></tr>
+<tr style="background:#F4B400;font-weight:800"><th>Total</th><td>60개</td><td>100%</td></tr>
+</tbody></table></div></section>
 
 <section class="section">
 <div class="head"><div><h2>주별 판매 테이블</h2><div class="desc">각 셀 위 = 판매량 / 아래 = 판매액 · 마지막 주차는 강조 표시</div></div></div>
@@ -136,7 +160,17 @@ function individual(){
    return `<div class="store-card"><div class="store-head"><div class="store-name">${s}</div><div class="store-meta">누적 <b>${f(total)}</b> · 최신 <b>${f(last)}</b> · 전주비 <b>${(chg*100).toFixed(1)}%</b></div></div><div class="store-chart">${oneChart(s)}</div></div>`;
  }).join("");
 }
-function render(){combined();individual();}
+
+function dailyChart(){
+ const names=["BBY","SRY","ROB","LGY","MET"],vals=[6,5,10,8,31],colors=["#2F75B5","#ED7D31","#A64D79","#70AD47","#7F8C8D"];
+ const W=800,H=285,p={l:50,r:25,t:30,b:45},mx=35,bw=85,gap=(W-p.l-p.r-bw*5)/4;
+ let svg=`<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">`;
+ for(let k=0;k<=3;k++){let v=k*10,y=p.t+(H-p.t-p.b)*(mx-v)/mx;svg+=`<line x1="${p.l}" y1="${y}" x2="${W-p.r}" y2="${y}" stroke="#E5E7EB"/><text x="${p.l-8}" y="${y+4}" text-anchor="end" font-size="13" fill="#6B7280">${v}</text>`;}
+ vals.forEach((v,i)=>{let x=p.l+i*(bw+gap),h=(H-p.t-p.b)*v/mx,y=H-p.b-h;svg+=`<rect x="${x}" y="${y}" width="${bw}" height="${h}" rx="6" fill="${colors[i]}"/><text x="${x+bw/2}" y="${y-9}" text-anchor="middle" font-size="18" font-weight="800">${v}개</text><text x="${x+bw/2}" y="${H-17}" text-anchor="middle" font-size="15" font-weight="700">${names[i]}</text>`;});
+ document.getElementById("dailyChart").innerHTML=svg+"</svg>";
+}
+
+function render(){combined();individual();dailyChart();}
 document.querySelectorAll(".btn").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".btn").forEach(x=>x.classList.remove("active"));b.classList.add("active");mode=b.dataset.mode;render();}));
 render();
 </script>
