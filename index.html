@@ -1,49 +1,265 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>한치킨 전지점 판매 통합 업데이트</title>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>한치킨 전지점 판매 대시보드</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#f4f6f8;color:#202733;font-family:Arial,"Apple SD Gothic Neo","Noto Sans KR",sans-serif}
-.page{max-width:1780px;margin:auto;padding:30px}header{background:linear-gradient(135deg,#17365d,#2f75b5);color:#fff;padding:28px 32px;border-radius:16px}
-h1{font-size:34px;margin:0 0 8px}header p{font-size:17px;margin:0;opacity:.94}section{background:#fff;border:1px solid #e3e7eb;border-radius:14px;padding:23px;margin:18px 0}
-h2{font-size:25px;color:#17365d;margin:0}.sub{font-size:15px;color:#697386;margin-top:5px}.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin:18px 0}
-.kpi{background:#fff;border:1px solid #e3e7eb;border-radius:12px;padding:18px}.kpi label{font-size:14px;color:#697386;font-weight:700}.kpi b{display:block;font-size:29px;color:#17365d;margin-top:5px}
-.chart-main{height:610px;margin-top:12px}.legend{display:flex;gap:24px;justify-content:center;font-size:16px;font-weight:800;flex-wrap:wrap}.legend i{display:inline-block;width:23px;height:4px;margin-right:6px;vertical-align:middle}
-.store-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:15px}.store-card{border:1px solid #e2e6ea;border-radius:12px;padding:16px}.store-head{display:flex;justify-content:space-between;font-size:21px;font-weight:900;color:#17365d}.store-head small{font-size:14px;color:#697386;font-weight:500}.store-chart{height:300px}
-.daily-wrap{display:grid;grid-template-columns:1fr 1.8fr;gap:18px;margin-top:15px}.summary{border:1px solid #e2e6ea;border-radius:12px;padding:20px}.summary .big{font-size:50px;font-weight:900;color:#17365d}.summary p{font-size:17px;line-height:1.65}
-.daily-chart{height:330px;border:1px solid #e2e6ea;border-radius:12px;padding:10px}
-.note{background:#fff4ce;padding:12px 14px;border-radius:9px;font-size:14px;line-height:1.5;margin-top:12px}
-svg{width:100%;height:100%;overflow:visible}.insights{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:14px}.insight{font-size:16px;line-height:1.6;background:#f8fafc;border-left:5px solid #2f75b5;padding:13px 15px;border-radius:8px}
-@media(max-width:950px){.kpis{grid-template-columns:repeat(2,1fr)}.store-grid,.daily-wrap,.insights{grid-template-columns:1fr}}
-@page{size:A4 landscape;margin:8mm}@media print{body{background:white}.page{padding:0}header{padding:12px;border-radius:0}h1{font-size:20px}header p{font-size:11px}section{padding:8px;margin:6px 0;break-inside:avoid}.kpis{gap:4px;margin:6px 0}.kpi{padding:6px}.kpi b{font-size:15px}.chart-main{height:350px}.store-grid{gap:5px}.store-card{padding:6px}.store-chart{height:190px}}
-</style></head><body><div class="page">
-<header><h1>전지점 한치킨 판매 현황</h1><p>완료 주차 6/14–8/22 + 8/23(일)·8/24(월)·8/25(화) 신규 주차 누적을 통합 그래프와 지점별 그래프에 연결</p></header>
-<div class="kpis"><div class="kpi"><label>8/23–25 전지점</label><b>241개</b></div><div class="kpi"><label>8/23 일요일</label><b>107개</b></div><div class="kpi"><label>8/24 월요일</label><b>60개</b></div><div class="kpi"><label>8/25 화요일</label><b>74개</b></div><div class="kpi"><label>신규 주차 1위</label><b>MET 107개</b></div></div>
-
-<section><h2>전지점 통합 판매량 추이</h2><div class="sub">기존 완료 주차 뒤에 <b>8/23–8/25 누적</b>을 마지막 데이터 포인트로 직접 연결했습니다. *마지막 값은 3일치 중간 집계입니다.</div><div id="combined" class="chart-main"></div><div id="legend" class="legend"></div><div class="note">※ 8/23–8/25 자료에는 Qty만 있으므로, 신규 주차는 <b>판매량 그래프에만 연결</b>했습니다. 판매액은 자료가 없는 상태에서 추정하지 않았습니다.</div></section>
-
-<section><h2>지점별 판매량 추이</h2><div class="sub">BBY · SRY · LGY · ROB · MET 각각의 기존 주간 실적에 8/23–8/25 누적을 연결</div><div class="store-grid"><div class="store-card"><div class="store-head"><span>BBY</span><small>8/23-25 누적 <b>31개</b></small></div><div id="chart-BBY" class="store-chart"></div></div><div class="store-card"><div class="store-head"><span>SRY</span><small>8/23-25 누적 <b>25개</b></small></div><div id="chart-SRY" class="store-chart"></div></div><div class="store-card"><div class="store-head"><span>LGY</span><small>8/23-25 누적 <b>52개</b></small></div><div id="chart-LGY" class="store-chart"></div></div><div class="store-card"><div class="store-head"><span>ROB</span><small>8/23-25 누적 <b>26개</b></small></div><div id="chart-ROB" class="store-chart"></div></div><div class="store-card"><div class="store-head"><span>MET</span><small>8/23-25 누적 <b>107개</b></small></div><div id="chart-MET" class="store-chart"></div></div></div></section>
-
-<section><h2>8/23–8/25 일별 흐름</h2><div class="daily-wrap"><div class="summary"><div class="big">241개</div><p>3일 누적 판매량<br><b>MET 107</b> · LGY 52 · BBY 31 · ROB 26 · SRY 25</p><div class="note">일별 전체: 107 → 60 → 74개</div></div><div id="daily" class="daily-chart"></div></div></section>
-
-<section><h2>현재 읽히는 흐름</h2><div class="insights">
-<div class="insight"><b>MET:</b> 45 → 31 → 31개, 3일 누적 <b>107개</b>로 신규 주차 전체의 44.4%. 최근 강한 판매 흐름이 이어지고 있음.</div>
-<div class="insight"><b>LGY:</b> 32 → 8 → 12개, 누적 <b>52개</b>. 일요일 판매 비중이 높음.</div>
-<div class="insight"><b>BBY:</b> 16 → 6 → 9개, 누적 <b>31개</b>. 월요일 하락 후 화요일 회복.</div>
-<div class="insight"><b>ROB:</b> 4 → 10 → 12개로 <b>3일 연속 증가</b>. 신규 주차에서 가장 뚜렷한 일별 상승 패턴.</div>
-<div class="insight"><b>SRY:</b> 10 → 5 → 10개, 누적 <b>25개</b>. 화요일에 일요일 수준으로 회복.</div>
-<div class="insight"><b>주의:</b> 마지막 그래프 포인트는 완성된 7일 주간과 달리 <b>3일 누적</b>이므로 절대 수치만으로 전주 대비 하락 판단을 하면 안 됩니다.</div>
-</div></section></div>
-<script>
-const D={"stores": ["BBY", "SRY", "LGY", "ROB", "MET"], "weeks": ["6/14-6/20", "6/21-6/27", "6/28-7/4", "7/5-7/11", "7/12-7/18", "7/19-7/25", "7/26-8/1", "8/2-8/8", "8/9-8/15", "8/16-8/22"], "qty": {"BBY": [143, 112, 118, 127, 107, 112, 105, 117, 115, 105], "SRY": [57, 50, 45, 59, 39, 37, 64, 101, 95, 60], "LGY": [105, 153, 239, 169, 103, 141, 140, 162, 169, 145], "ROB": [0, 24, 19, 46, 61, 67, 66, 68, 66, 66], "MET": [8, 44, 43, 27, 24, 22, 28, 25, 24, 187]}, "sales": {"BBY": [1428.57, 1118.88, 1178.82, 1268.73, 1068.93, 1118.88, 1048.95, 1168.83, 1148.85, 1048.95], "SRY": [559.43, 499.5, 449.55, 589.41, 389.61, 369.63, 639.36, 1008.99, 949.05, 599.4], "LGY": [1048.98, 1527.47, 2380.61, 1688.31, 1028.97, 1407.59, 1391.6, 1617.38, 1688.31, 1448.55], "ROB": [0, 239.76, 189.81, 459.54, 609.39, 668.33, 659.34, 679.32, 659.34, 656.34], "MET": [78.92, 439.56, 426.95, 269.73, 239.76, 219.78, 279.72, 249.75, 239.76, 1868.13]}, "trendLabels": ["6/14-6/20", "6/21-6/27", "6/28-7/4", "7/5-7/11", "7/12-7/18", "7/19-7/25", "7/26-8/1", "8/2-8/8", "8/9-8/15", "8/16-8/22", "8/23-8/25*"], "trendQty": {"BBY": [143, 112, 118, 127, 107, 112, 105, 117, 115, 105, 31], "SRY": [57, 50, 45, 59, 39, 37, 64, 101, 95, 60, 25], "LGY": [105, 153, 239, 169, 103, 141, 140, 162, 169, 145, 52], "ROB": [0, 24, 19, 46, 61, 67, 66, 68, 66, 66, 26], "MET": [8, 44, 43, 27, 24, 22, 28, 25, 24, 187, 107]}, "dailyDates": ["8/23 일", "8/24 월", "8/25 화"], "daily": {"BBY": [16, 6, 9], "SRY": [10, 5, 10], "LGY": [32, 8, 12], "ROB": [4, 10, 12], "MET": [45, 31, 31]}, "wtd": {"BBY": 31, "SRY": 25, "LGY": 52, "ROB": 26, "MET": 107}, "dailyTotal": [107, 60, 74]};
-const C={BBY:"#2F75B5",SRY:"#ED7D31",LGY:"#70AD47",ROB:"#A64D79",MET:"#5B9BD5"};
-function chart(el,labels,series,W=1300,H=560){
- const p={l:70,r:40,t:45,b:65},all=Object.values(series).flat(),mx=Math.max(...all)*1.18||1,x=i=>p.l+(W-p.l-p.r)*i/(labels.length-1),y=v=>p.t+(H-p.t-p.b)*(mx-v)/mx;
- let s=`<svg viewBox="0 0 ${W} ${H}">`;
- for(let k=0;k<=5;k++){let v=mx*k/5,yy=y(v);s+=`<line x1="${p.l}" y1="${yy}" x2="${W-p.r}" y2="${yy}" stroke="#e5e7eb"/><text x="${p.l-9}" y="${yy+5}" text-anchor="end" font-size="13" fill="#687386">${Math.round(v)}</text>`}
- labels.forEach((v,i)=>s+=`<text x="${x(i)}" y="${H-22}" text-anchor="middle" font-size="12" font-weight="${i===labels.length-1?800:400}" fill="${i===labels.length-1?"#a16207":"#687386"}">${v}</text>`);
- Object.entries(series).forEach(([name,vals],si)=>{let pts=vals.map((v,i)=>`${x(i)},${y(v)}`).join(" ");s+=`<polyline points="${pts}" fill="none" stroke="${C[name]}" stroke-width="3.3"/>`;vals.forEach((v,i)=>{let off=[-18,22,-29,34,8][si];s+=`<circle cx="${x(i)}" cy="${y(v)}" r="${i===vals.length-1?5.5:4}" fill="${C[name]}"/><text x="${x(i)}" y="${y(v)+off}" text-anchor="middle" font-size="13" font-weight="800" fill="${C[name]}" paint-order="stroke" stroke="white" stroke-width="4">${v}</text>`})});document.getElementById(el).innerHTML=s+"</svg>";
+:root{
+  --navy:#132C4A; --navy2:#1F4E78; --blue:#2F75B5; --bg:#F3F6F9;
+  --card:#FFFFFF; --line:#E5EAF0; --text:#202938; --muted:#6E7A8A;
+  --accent:#F4B400; --soft:#F8FAFC; --green:#2E8B57;
 }
-chart("combined",D.trendLabels,D.trendQty);
-document.getElementById("legend").innerHTML=D.stores.map(s=>`<span><i style="background:${C[s]}"></i>${s}</span>`).join("");
-D.stores.forEach(store=>chart("chart-"+store,D.trendLabels,{[store]:D.trendQty[store]},680,300));
-(function(){const labels=D.dailyDates,series={BBY:D.daily.BBY,SRY:D.daily.SRY,LGY:D.daily.LGY,ROB:D.daily.ROB,MET:D.daily.MET};chart("daily",labels,series,850,330)})();
-</script></body></html>
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(180deg,#EEF3F8 0,#F8FAFC 320px);font-family:Inter,Arial,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:var(--text)}
+.dashboard{max-width:1780px;margin:0 auto;padding:28px}
+.hero{background:linear-gradient(135deg,#102A43 0%,#1F4E78 58%,#2F75B5 100%);color:white;border-radius:22px;padding:30px 34px;box-shadow:0 14px 40px rgba(19,44,74,.18)}
+.hero-top{display:flex;justify-content:space-between;gap:20px;align-items:flex-end}
+.hero h1{margin:0;font-size:36px;letter-spacing:-.03em}
+.hero p{margin:9px 0 0;font-size:17px;opacity:.9}
+.mode-switch{display:flex;background:rgba(255,255,255,.14);padding:5px;border-radius:12px;backdrop-filter:blur(8px)}
+.mode-btn{border:0;background:transparent;color:#DDE8F3;padding:11px 18px;border-radius:9px;font-size:15px;font-weight:800;cursor:pointer}
+.mode-btn.active{background:#fff;color:var(--navy);box-shadow:0 4px 12px rgba(0,0,0,.12)}
+.kpi-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin:18px 0}
+.kpi{background:rgba(255,255,255,.96);border:1px solid var(--line);border-radius:16px;padding:18px 20px;box-shadow:0 8px 24px rgba(16,42,67,.06)}
+.kpi-label{font-size:13px;color:var(--muted);font-weight:800;letter-spacing:.02em}
+.kpi-value{font-size:30px;font-weight:900;color:var(--navy);margin-top:6px;letter-spacing:-.03em}
+.kpi-sub{font-size:13px;color:var(--muted);margin-top:3px}
+.panel{background:rgba(255,255,255,.98);border:1px solid var(--line);border-radius:18px;padding:22px;margin-top:16px;box-shadow:0 8px 28px rgba(16,42,67,.055)}
+.panel-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:14px}
+.panel h2{margin:0;color:var(--navy);font-size:25px;letter-spacing:-.02em}
+.panel-desc{font-size:14px;color:var(--muted);margin-top:5px}
+.partial-pill{display:inline-flex;align-items:center;gap:7px;background:#FFF6D9;color:#8A5B00;font-size:13px;font-weight:800;padding:8px 11px;border-radius:999px}
+.partial-pill::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.main-chart{height:600px;border-radius:14px;background:linear-gradient(180deg,#FCFDFE,#F8FAFC);border:1px solid #EDF1F5;padding:8px}
+svg{width:100%;height:100%;overflow:visible}
+.legend{display:flex;justify-content:center;gap:26px;flex-wrap:wrap;margin-top:13px;font-size:15px;font-weight:900}
+.legend i{display:inline-block;width:24px;height:4px;border-radius:4px;margin-right:7px;vertical-align:middle}
+.store-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.store-card{border:1px solid var(--line);background:linear-gradient(180deg,#FFFFFF,#FBFCFD);border-radius:15px;padding:16px}
+.store-card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:3px}
+.store-name{font-size:21px;font-weight:900;color:var(--navy);vertical-align:middle}
+.store-dot{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:8px}
+.dot-BBY{background:#2F75B5}.dot-SRY{background:#ED7D31}.dot-LGY{background:#70AD47}.dot-ROB{background:#A64D79}.dot-MET{background:#5B9BD5}
+.store-kpi{text-align:right;color:var(--muted);font-size:12px} .store-kpi b{display:block;color:var(--navy);font-size:17px;margin-top:2px}
+.store-chart{height:300px}
+.daily-grid{display:grid;grid-template-columns:1fr 1.7fr;gap:18px}
+.daily-summary{border:1px solid var(--line);border-radius:14px;padding:20px;background:linear-gradient(180deg,#FFFFFF,#FAFBFC)}
+.daily-summary .eyebrow{font-size:13px;color:var(--muted);font-weight:800}
+.daily-summary .big{font-size:52px;font-weight:950;color:var(--navy);margin:6px 0}
+.rank{font-size:16px;line-height:1.7}
+.daily-chart{height:340px;border:1px solid var(--line);border-radius:14px;padding:8px;background:#FBFCFE}
+.note{margin-top:12px;background:#FFF7DB;border:1px solid #F6E7A9;color:#6F5411;border-radius:10px;padding:11px 13px;font-size:13px;line-height:1.55}
+.insights{display:grid;grid-template-columns:repeat(2,1fr);gap:11px}
+.insight{background:#F8FAFC;border:1px solid #EDF1F5;border-left:5px solid var(--blue);border-radius:10px;padding:14px 15px;font-size:15px;line-height:1.6}
+@media(max-width:1050px){.hero-top{align-items:flex-start;flex-direction:column}.kpi-grid{grid-template-columns:repeat(2,1fr)}.store-grid,.daily-grid,.insights{grid-template-columns:1fr}}
+@page{size:A4 landscape;margin:8mm}
+@media print{
+ body{background:#fff}.dashboard{max-width:none;padding:0}.hero{border-radius:0;padding:12px 15px;box-shadow:none}.hero h1{font-size:21px}.hero p{font-size:11px}
+ .mode-switch{display:none}.kpi-grid{gap:5px;margin:7px 0}.kpi{padding:7px 8px;box-shadow:none}.kpi-value{font-size:16px}.kpi-label,.kpi-sub{font-size:8px}
+ .panel{padding:8px;margin-top:6px;box-shadow:none;break-inside:avoid}.panel h2{font-size:15px}.panel-desc{font-size:9px}
+ .main-chart{height:350px}.store-grid{gap:5px}.store-card{padding:6px}.store-chart{height:190px}
+ .daily-chart{height:230px}.insight{font-size:9px;padding:7px}
+}
+</style>
+</head>
+<body>
+<div class="dashboard">
+  <section class="hero">
+    <div class="hero-top">
+      <div>
+        <h1>전지점 한치킨 판매 대시보드</h1>
+        <p>완료 주차 6/14–8/22 + 8/23(일) · 8/24(월) · 8/25(화) 누적 연결</p>
+      </div>
+      <div class="mode-switch">
+        <button class="mode-btn active" data-mode="sales">판매금액</button>
+        <button class="mode-btn" data-mode="qty">판매량</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="kpi-grid">
+    <div class="kpi"><div class="kpi-label">8/23–25 누적</div><div class="kpi-value" id="kpi-total"></div><div class="kpi-sub">신규 주차 3일 집계</div></div>
+    <div class="kpi"><div class="kpi-label">8/23 일요일</div><div class="kpi-value" id="kpi-sun"></div><div class="kpi-sub">전지점 합계</div></div>
+    <div class="kpi"><div class="kpi-label">8/24 월요일</div><div class="kpi-value" id="kpi-mon"></div><div class="kpi-sub">전지점 합계</div></div>
+    <div class="kpi"><div class="kpi-label">8/25 화요일</div><div class="kpi-value" id="kpi-tue"></div><div class="kpi-sub">전지점 합계</div></div>
+    <div class="kpi"><div class="kpi-label">신규 주차 1위</div><div class="kpi-value" id="kpi-top"></div><div class="kpi-sub" id="kpi-top-sub"></div></div>
+  </div>
+
+  <section class="panel">
+    <div class="panel-head">
+      <div><h2>전지점 통합 추이</h2><div class="panel-desc">5개 지점을 한 그래프에서 비교 · 버튼을 누르면 판매금액/판매량이 즉시 전환됩니다.</div></div>
+      <div class="partial-pill">8/23–25는 3일 누적</div>
+    </div>
+    <div id="combined" class="main-chart"></div>
+    <div id="legend" class="legend"></div>
+    <div class="note">8/23–25 판매금액은 기존 한치킨 주간 데이터에서 일관되게 확인되는 <b>$9.99/개</b> 기준으로 계산했습니다. 신규 3일 원본 화면에는 Qty만 표시되어 있어, 금액은 계산값입니다.</div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-head"><div><h2>지점별 상세 추이</h2><div class="panel-desc">각 지점 그래프도 동일 버튼에 연동되어 판매금액/판매량이 함께 바뀝니다.</div></div></div>
+    <div class="store-grid"><article class="store-card">
+      <div class="store-card-head">
+        <div><span class="store-dot dot-BBY"></span><span class="store-name">BBY</span></div>
+        <div class="store-kpi"><span>8/23–25</span><b id="meta-BBY"></b></div>
+      </div>
+      <div id="chart-BBY" class="store-chart"></div>
+    </article><article class="store-card">
+      <div class="store-card-head">
+        <div><span class="store-dot dot-SRY"></span><span class="store-name">SRY</span></div>
+        <div class="store-kpi"><span>8/23–25</span><b id="meta-SRY"></b></div>
+      </div>
+      <div id="chart-SRY" class="store-chart"></div>
+    </article><article class="store-card">
+      <div class="store-card-head">
+        <div><span class="store-dot dot-LGY"></span><span class="store-name">LGY</span></div>
+        <div class="store-kpi"><span>8/23–25</span><b id="meta-LGY"></b></div>
+      </div>
+      <div id="chart-LGY" class="store-chart"></div>
+    </article><article class="store-card">
+      <div class="store-card-head">
+        <div><span class="store-dot dot-ROB"></span><span class="store-name">ROB</span></div>
+        <div class="store-kpi"><span>8/23–25</span><b id="meta-ROB"></b></div>
+      </div>
+      <div id="chart-ROB" class="store-chart"></div>
+    </article><article class="store-card">
+      <div class="store-card-head">
+        <div><span class="store-dot dot-MET"></span><span class="store-name">MET</span></div>
+        <div class="store-kpi"><span>8/23–25</span><b id="meta-MET"></b></div>
+      </div>
+      <div id="chart-MET" class="store-chart"></div>
+    </article></div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-head"><div><h2>8/23–8/25 일별 흐름</h2><div class="panel-desc">일 · 월 · 화 각 날짜의 전지점 합계를 같은 기준으로 표시합니다.</div></div></div>
+    <div class="daily-grid">
+      <div class="daily-summary">
+        <div class="eyebrow">3-DAY TOTAL</div>
+        <div class="big" id="daily-big"></div>
+        <div class="rank" id="daily-rank"></div>
+        <div class="note">마지막 주차는 아직 3일치이므로 완료된 7일 주간과 단순 비교하지 않는 것이 좋습니다.</div>
+      </div>
+      <div id="daily" class="daily-chart"></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-head"><div><h2>현재 핵심 포인트</h2></div></div>
+    <div class="insights">
+      <div class="insight"><b>MET</b>가 8/23–25 누적 107개로 신규 주차의 44.4%를 차지하며 가장 강하게 견인하고 있습니다.</div>
+      <div class="insight"><b>LGY</b>는 52개로 2위이며, 일요일 32개 판매가 특히 강했습니다.</div>
+      <div class="insight"><b>ROB</b>는 4 → 10 → 12개로 3일 연속 상승해 일별 흐름이 가장 좋습니다.</div>
+      <div class="insight"><b>BBY</b>는 16 → 6 → 9개로 월요일 하락 후 화요일 반등했습니다.</div>
+      <div class="insight"><b>SRY</b>는 10 → 5 → 10개로 화요일에 일요일 수준을 회복했습니다.</div>
+      <div class="insight"><b>전사 일별</b>은 107 → 60 → 74개로 월요일 저점 후 화요일 +23.3% 반등했습니다.</div>
+    </div>
+  </section>
+</div>
+
+<script>
+const D={"stores": ["BBY", "SRY", "LGY", "ROB", "MET"], "weeks": ["6/14-6/20", "6/21-6/27", "6/28-7/4", "7/5-7/11", "7/12-7/18", "7/19-7/25", "7/26-8/1", "8/2-8/8", "8/9-8/15", "8/16-8/22"], "trendLabels": ["6/14-6/20", "6/21-6/27", "6/28-7/4", "7/5-7/11", "7/12-7/18", "7/19-7/25", "7/26-8/1", "8/2-8/8", "8/9-8/15", "8/16-8/22", "8/23-8/25*"], "qty": {"BBY": [143, 112, 118, 127, 107, 112, 105, 117, 115, 105], "SRY": [57, 50, 45, 59, 39, 37, 64, 101, 95, 60], "LGY": [105, 153, 239, 169, 103, 141, 140, 162, 169, 145], "ROB": [0, 24, 19, 46, 61, 67, 66, 68, 66, 66], "MET": [8, 44, 43, 27, 24, 22, 28, 25, 24, 187]}, "sales": {"BBY": [1428.57, 1118.88, 1178.82, 1268.73, 1068.93, 1118.88, 1048.95, 1168.83, 1148.85, 1048.95], "SRY": [559.43, 499.5, 449.55, 589.41, 389.61, 369.63, 639.36, 1008.99, 949.05, 599.4], "LGY": [1048.98, 1527.47, 2380.61, 1688.31, 1028.97, 1407.59, 1391.6, 1617.38, 1688.31, 1448.55], "ROB": [0, 239.76, 189.81, 459.54, 609.39, 668.33, 659.34, 679.32, 659.34, 656.34], "MET": [78.92, 439.56, 426.95, 269.73, 239.76, 219.78, 279.72, 249.75, 239.76, 1868.13]}, "trendQty": {"BBY": [143, 112, 118, 127, 107, 112, 105, 117, 115, 105, 31], "SRY": [57, 50, 45, 59, 39, 37, 64, 101, 95, 60, 25], "LGY": [105, 153, 239, 169, 103, 141, 140, 162, 169, 145, 52], "ROB": [0, 24, 19, 46, 61, 67, 66, 68, 66, 66, 26], "MET": [8, 44, 43, 27, 24, 22, 28, 25, 24, 187, 107]}, "trendSales": {"BBY": [1428.57, 1118.88, 1178.82, 1268.73, 1068.93, 1118.88, 1048.95, 1168.83, 1148.85, 1048.95, 309.69], "SRY": [559.43, 499.5, 449.55, 589.41, 389.61, 369.63, 639.36, 1008.99, 949.05, 599.4, 249.75], "LGY": [1048.98, 1527.47, 2380.61, 1688.31, 1028.97, 1407.59, 1391.6, 1617.38, 1688.31, 1448.55, 519.48], "ROB": [0, 239.76, 189.81, 459.54, 609.39, 668.33, 659.34, 679.32, 659.34, 656.34, 259.74], "MET": [78.92, 439.56, 426.95, 269.73, 239.76, 219.78, 279.72, 249.75, 239.76, 1868.13, 1068.93]}, "dailyDates": ["8/23 일", "8/24 월", "8/25 화"], "dailyQty": {"BBY": [16, 6, 9], "SRY": [10, 5, 10], "LGY": [32, 8, 12], "ROB": [4, 10, 12], "MET": [45, 31, 31]}, "dailySales": {"BBY": [159.84, 59.94, 89.91], "SRY": [99.9, 49.95, 99.9], "LGY": [319.68, 79.92, 119.88], "ROB": [39.96, 99.9, 119.88], "MET": [449.55, 309.69, 309.69]}, "dailyQtyTotal": [107, 60, 74], "dailySalesTotal": [1068.93, 599.4, 739.26], "wtdQty": {"BBY": 31, "SRY": 25, "LGY": 52, "ROB": 26, "MET": 107}, "wtdSales": {"BBY": 309.69, "SRY": 249.75, "LGY": 519.48, "ROB": 259.74, "MET": 1068.93}, "storeQtyTotal": {"BBY": 1161, "SRY": 607, "LGY": 1526, "ROB": 483, "MET": 432}, "storeSalesTotal": {"BBY": 11598.39, "SRY": 6053.93, "LGY": 15227.77, "ROB": 4821.17, "MET": 4312.06}, "unitPrice": 9.99};
+const C={BBY:"#2F75B5",SRY:"#ED7D31",LGY:"#70AD47",ROB:"#A64D79",MET:"#5B9BD5"};
+let mode="sales";
+
+function fmt(v){
+  return mode==="sales"
+    ? "$"+Number(v).toLocaleString(undefined,{minimumFractionDigits:0,maximumFractionDigits:2})
+    : Number(v).toLocaleString()+"개";
+}
+
+function trendData(){
+  return mode==="sales" ? D.trendSales : D.trendQty;
+}
+function dailyData(){
+  return mode==="sales" ? D.dailySales : D.dailyQty;
+}
+function dailyTotals(){
+  return mode==="sales" ? D.dailySalesTotal : D.dailyQtyTotal;
+}
+function wtdData(){
+  return mode==="sales" ? D.wtdSales : D.wtdQty;
+}
+
+function lineChart(el, labels, series, W=1300, H=560, compact=false){
+  const p={l:compact?48:74,r:compact?20:40,t:compact?35:48,b:compact?50:66};
+  const all=Object.values(series).flat(), mx=Math.max(...all)*1.18||1;
+  const x=i=>p.l+(W-p.l-p.r)*i/(labels.length-1);
+  const y=v=>p.t+(H-p.t-p.b)*(mx-v)/mx;
+  let svg=`<svg viewBox="0 0 ${W} ${H}">`;
+  const ticks=compact?4:5;
+  for(let k=0;k<=ticks;k++){
+    const val=mx*k/ticks, yy=y(val);
+    svg+=`<line x1="${p.l}" y1="${yy}" x2="${W-p.r}" y2="${yy}" stroke="#E7ECF1" stroke-width="1"/>`;
+    if(!compact) svg+=`<text x="${p.l-10}" y="${yy+5}" text-anchor="end" font-size="13" fill="#718096">${mode==="sales"?"$"+Math.round(val).toLocaleString():Math.round(val)}</text>`;
+  }
+  labels.forEach((lab,i)=>{
+    const isLast=i===labels.length-1;
+    const shown=compact ? lab.replace("6/","").replace("7/","").replace("8/","") : lab;
+    svg+=`<text x="${x(i)}" y="${H-19}" text-anchor="middle" font-size="${compact?10:12}" font-weight="${isLast?800:500}" fill="${isLast?"#9A6700":"#718096"}">${shown}</text>`;
+  });
+  Object.entries(series).forEach(([name,vals],si)=>{
+    const pts=vals.map((v,i)=>`${x(i)},${y(v)}`).join(" ");
+    svg+=`<polyline points="${pts}" fill="none" stroke="${C[name]}" stroke-width="${compact?3:3.5}" stroke-linecap="round" stroke-linejoin="round"/>`;
+    vals.forEach((v,i)=>{
+      const off=compact?-11:[-19,22,-30,35,8][si];
+      svg+=`<circle cx="${x(i)}" cy="${y(v)}" r="${i===vals.length-1?5.2:3.8}" fill="${C[name]}" stroke="#fff" stroke-width="1.5"/>`;
+      svg+=`<text x="${x(i)}" y="${y(v)+off}" text-anchor="middle" font-size="${compact?11:13}" font-weight="800" fill="${compact?"#344054":C[name]}" paint-order="stroke" stroke="#fff" stroke-width="4">${mode==="sales"?"$"+Number(v).toLocaleString(undefined,{maximumFractionDigits:0}):v}</text>`;
+    });
+  });
+  svg+="</svg>";
+  document.getElementById(el).innerHTML=svg;
+}
+
+function renderCombined(){
+  lineChart("combined",D.trendLabels,trendData());
+  document.getElementById("legend").innerHTML=D.stores.map(s=>`<span><i style="background:${C[s]}"></i>${s}</span>`).join("");
+}
+
+function renderStores(){
+  const source=trendData(), wtd=wtdData();
+  D.stores.forEach(s=>{
+    lineChart("chart-"+s,D.trendLabels,{[s]:source[s]},680,300,true);
+    document.getElementById("meta-"+s).textContent=fmt(wtd[s]);
+  });
+}
+
+function renderDaily(){
+  const labels=D.dailyDates, vals=dailyTotals(), W=900,H=340,p={l:55,r:28,t:35,b:55}, mx=Math.max(...vals)*1.18||1;
+  const bw=150, gap=(W-p.l-p.r-bw*3)/2, x=i=>p.l+i*(bw+gap), y=v=>p.t+(H-p.t-p.b)*(mx-v)/mx;
+  let svg=`<svg viewBox="0 0 ${W} ${H}">`;
+  vals.forEach((v,i)=>{
+    const yy=y(v), hh=H-p.b-yy;
+    svg+=`<rect x="${x(i)}" y="${yy}" width="${bw}" height="${hh}" rx="9" fill="#2F75B5"/>`;
+    svg+=`<text x="${x(i)+bw/2}" y="${yy-12}" text-anchor="middle" font-size="20" font-weight="900" fill="#17365D">${fmt(v)}</text>`;
+    svg+=`<text x="${x(i)+bw/2}" y="${H-19}" text-anchor="middle" font-size="16" font-weight="800" fill="#344054">${labels[i]}</text>`;
+  });
+  document.getElementById("daily").innerHTML=svg+"</svg>";
+  const w=wtdData();
+  const sorted=D.stores.slice().sort((a,b)=>w[b]-w[a]);
+  const total=Object.values(w).reduce((a,b)=>a+b,0);
+  document.getElementById("daily-big").textContent=fmt(total);
+  document.getElementById("daily-rank").innerHTML=sorted.map((s,i)=>`${i+1}. <b>${s}</b> ${fmt(w[s])}`).join("<br>");
+}
+
+function renderKPIs(){
+  const totals=dailyTotals(), w=wtdData();
+  const total=Object.values(w).reduce((a,b)=>a+b,0);
+  const top=D.stores.slice().sort((a,b)=>w[b]-w[a])[0];
+  document.getElementById("kpi-total").textContent=fmt(total);
+  document.getElementById("kpi-sun").textContent=fmt(totals[0]);
+  document.getElementById("kpi-mon").textContent=fmt(totals[1]);
+  document.getElementById("kpi-tue").textContent=fmt(totals[2]);
+  document.getElementById("kpi-top").textContent=top+" "+fmt(w[top]);
+  document.getElementById("kpi-top-sub").textContent=(w[top]/total*100).toFixed(1)+"% 점유";
+}
+
+function renderAll(){renderKPIs();renderCombined();renderStores();renderDaily();}
+document.querySelectorAll(".mode-btn").forEach(btn=>btn.addEventListener("click",()=>{
+  document.querySelectorAll(".mode-btn").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active"); mode=btn.dataset.mode; renderAll();
+}));
+renderAll();
+</script>
+</body>
+</html>
