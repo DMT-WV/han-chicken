@@ -21,25 +21,25 @@ svg{width:100%;height:100%;overflow:visible}.axis{fill:#b9c7d8;font-size:16px;fo
 <body><div class="page">
 <section class="hero">
 <h1>한치킨 통합 주간 판매 보고서</h1>
-<p>오리지널 한치킨과 신규 윙세트를 분리 분석 · 주간 기준 일요일–토요일 · 최신 반영 2026-09-12</p>
+<p>오리지널 한치킨과 신규 윙세트를 분리 분석 · 주간 기준 일요일–토요일 · 완결주 2026-09-12 · 9/13 SRY 윙 WTD 반영</p>
 <div class="tags"><div class="tag"><b>① 오리지널 한치킨</b>Barcode 211493 · 6월 이후 주간 추이 + 9/6–9/12 완결 주차</div><div class="tag"><b>② 한치킨 윙세트</b>Barcode 211988 · 9/4–9/12 런칭 초기 추적</div></div>
 </section>
 
 <div class="kpis">
-<div class="kpi"><small>오리지널 금주 판매</small><strong>630개</strong><div class="sub">9/6–9/12 · 7일 완결</div></div>
-<div class="kpi"><small>전주 대비</small><strong style="color:var(--gold)">-0.2%</strong><div class="sub">631개 → 630개</div></div>
-<div class="kpi"><small>오리지널 판매금액</small><strong>$6,293.70</strong><div class="sub">$9.99 × 630개</div></div>
-<div class="kpi"><small>윙세트 9일 확인량</small><strong>106개</strong><div class="sub">211988 기준 · 9/4–9/12</div></div>
+<div class="kpi"><small>오리지널 금주 보정판매</small><strong>615개</strong><div class="sub">9/6–9/12 · 7일 완결</div></div>
+<div class="kpi"><small>전주 대비</small><strong style="color:var(--gold)">-2.5%</strong><div class="sub">631개 → 615개</div></div>
+<div class="kpi"><small>오리지널 판매금액</small><strong>$6,143.85</strong><div class="sub">$9.99 × 615개</div></div>
+<div class="kpi"><small>윙세트 보정 누적</small><strong>139개</strong><div class="sub">211988 124개 + SRY 오입력 15개</div></div>
 <div class="kpi"><small>금주 최고 일</small><strong>9/12 · 139개</strong><div class="sub">오리지널 토요일</div></div>
 </div>
 
 <section class="panel">
-<div class="panel-head"><div><h2>① 오리지널 한치킨 · Barcode 211493</h2><div class="desc">9/6–9/12 신규 완결 주차 반영 · 전주 8/30–9/5와 직접 비교</div></div><span class="badge">완결 주차</span></div>
+<div class="panel-head"><div><h2>① 오리지널 한치킨 · Barcode 211493</h2><div class="desc">9/6–9/12 완결 주차 · SRY 금·토 윙 15개가 211493에 오입력되어 주간 합계에서 보정</div></div><span class="badge">완결 주차</span></div>
 <div class="grid2">
 <div class="chartbox"><div class="chart-head"><div><div class="chart-title">6월 이후 지점별 주간 추이</div><div class="chart-sub">레전드/선/포인트 클릭 → 선택 지점만 포커스</div></div><div class="toggle" data-key="origTrend"><button class="active" data-mode="qty">판매갯수</button><button data-mode="sales">판매금액</button></div></div><div id="origTrend" class="chart"></div><div id="origTrendLegend" class="legend"></div></div>
 <div class="chartbox"><div class="chart-head"><div><div class="chart-title">금주 일별 지점 추이 · 9/6–9/12</div><div class="chart-sub">일~토 7일 · 숫자 겹침 최소화</div></div><div class="toggle" data-key="origDaily"><button class="active" data-mode="qty">판매갯수</button><button data-mode="sales">판매금액</button></div></div><div id="origDaily" class="chart"></div><div id="origDailyLegend" class="legend"></div></div>
 <div class="chartbox"><div class="chart-head"><div><div class="chart-title">전주 대비 지점별 성과</div><div class="chart-sub">8/30–9/5 vs 9/6–9/12</div></div><div class="toggle" data-key="wow"><button class="active" data-mode="qty">판매갯수</button><button data-mode="sales">판매금액</button></div></div><div id="wow" class="chart short"></div></div>
-<div class="chartbox"><div class="chart-title">금주 지점별 집계</div><table><thead><tr><th>지점</th><th>전주</th><th>금주</th><th>증감</th><th>금주 금액</th></tr></thead><tbody id="origTable"></tbody></table><div class="note">9/6–9/12 총 630개로 전주 631개와 사실상 동일(-0.2%). 주간 총량은 유지됐지만 지점별 구성에는 변화가 있음.</div></div>
+<div class="chartbox"><div class="chart-title">금주 지점별 집계</div><table><thead><tr><th>지점</th><th>전주</th><th>금주</th><th>증감</th><th>금주 금액</th></tr></thead><tbody id="origTable"></tbody></table><div class="note">POS 원집계 630개에서 SRY 금·토 윙 오입력 15개를 제외한 보정 오리지널 실적은 615개. 전주 631개 대비 -16개(-2.5%). SRY 금·토 15개의 일별 배분은 확인되지 않아 일별 그래프는 POS 원집계를 유지하고, 주간 비교에는 보정치 62개를 적용.</div></div>
 </div>
 </section>
 
@@ -49,15 +49,15 @@ svg{width:100%;height:100%;overflow:visible}.axis{fill:#b9c7d8;font-size:16px;fo
 <div class="chartbox"><div class="chart-head"><div><div class="chart-title">윙세트 일별 지점 추이</div><div class="chart-sub">BBY / SRY / ROB / LGY / YAL / MET · 클릭 포커스 지원</div></div><div class="toggle" data-key="wingTrend"><button class="active" data-mode="qty">판매갯수</button><button data-mode="sales">판매금액</button></div></div><div id="wingTrend" class="chart"></div><div id="wingLegend" class="legend"></div></div>
 <div class="chartbox"><div class="chart-head"><div><div class="chart-title">윙세트 일별 총 판매</div><div class="chart-sub">211988로 확인된 수량 기준</div></div><div class="toggle" data-key="wingTotal"><button class="active" data-mode="qty">판매갯수</button><button data-mode="sales">판매금액</button></div></div><div id="wingTotal" class="chart"></div></div>
 <div class="chartbox"><div class="chart-title">윙세트 지점별 누적 · 9/4–9/12</div><table><thead><tr><th>지점</th><th>확인 수량</th><th>환산 금액</th><th>비고</th></tr></thead><tbody id="wingTable"></tbody></table></div>
-<div class="chartbox"><div class="chart-title">데이터 해석 주의</div><div class="note"><b>써리(SRY) 바코드 전환 이슈:</b> 지점 메시지에 따르면 윙 판매 첫 주 금·토는 <b>230988</b>로 판매했고, 일요일부터 <b>211988</b>로 판매함. 따라서 211988 화면에서 9/4–9/5 SRY가 0으로 보이는 것은 “실제 판매 0”으로 해석하면 안 됨. 230988 수량이 추가되면 윙세트 전체 런칭 실적을 합산해야 정확함.</div><div class="note">현재 윙세트 판매금액은 화면의 실제 금액 또는 동일 단가 <b>$9.99 × Qty</b> 기준. 211988 기준 9/4–9/12 확인 수량은 106개이며, SRY 9/4–9/5의 230988 판매분은 미포함.</div></div>
+<div class="chartbox"><div class="chart-title">SRY 바코드 보정 및 다음 주 WTD</div><table><thead><tr><th>구분</th><th>수량</th><th>금액</th><th>처리</th></tr></thead><tbody><tr><td>9/11~9/12 SRY 윙</td><td><b>15개</b></td><td><b>$149.85</b></td><td>211493 → 윙으로 보정</td></tr><tr><td>9/13 SRY 윙</td><td><b>18개</b></td><td><b>$179.82</b></td><td>211988 정상 · 다음 주 WTD</td></tr></tbody></table><div class="note">9/11~9/12의 15개는 금·토 합계만 확인되어 일자별로 임의 분할하지 않음.</div></div><div class="chartbox"><div class="chart-title">데이터 해석 주의</div><div class="note"><b>써리(SRY) POS 바코드 오입력 확정:</b> 9/11~9/12 금·토 윙세트 총 15개를 신규 윙 바코드 211988이 아니라 기존 오리지널 한치킨 바코드 <b>211493</b>으로 처리함. 따라서 오리지널 주간 실적에서 15개를 차감하고 윙세트에 15개를 가산하여 보정함. 금·토 각각의 배분은 확인되지 않아 임의 배분하지 않음.</div><div class="note">윙세트 판매금액은 <b>$9.99 × Qty</b> 기준. 211988 기준 9/4–9/12 확인 124개 + SRY 211493 오입력 15개 = <b>보정 누적 139개 / $1,388.61</b>. 또한 <b>9/13(일) SRY는 211988로 정상 판매 18개($179.82)</b>이며 이는 다음 주 WTD로 별도 관리.</div></div>
 </div>
 </section>
 
 <section class="panel"><div class="panel-head"><div><h2>주간 핵심 해석</h2><div class="desc">오리지널과 윙세트를 섞지 않고 별도 판단</div></div></div><div class="insights">
-<div class="insight"><b>오리지널은 630개로 전주 631개 대비 -1개(-0.2%).</b> 전체 수요는 사실상 유지됨. 금주 일별 총량은 105 → 94 → 80 → 58 → 76 → 78 → 139개로 토요일 반등이 매우 큼.</div>
-<div class="insight"><b>지점별로는 SRY와 LGY가 개선.</b> SRY 83→75(-9.6%), ROB 67→40(-40.3%), BBY 100→108(+8.0%), LGY 161→181(+12.4%), MET 220→224(+1.8%)로 구성 변화가 큼.</div>
-<div class="insight"><b>윙세트 211988은 9일간 106개 확인.</b> 9/4–9/6 초기 37개 이후 9/7–9/12에 69개가 추가됨. YAL도 9/9부터 판매가 확인됨.</div>
-<div class="insight"><b>윙세트 SRY는 현재 숫자만으로 지점 비교하면 왜곡됨.</b> 금·토 230988 판매분이 빠져 있으므로, 해당 바코드 수량을 받아 합산한 뒤 지점별 런칭 성과를 비교하는 것이 맞음.</div>
+<div class="insight"><b>오리지널은 POS 원집계 630개이나 SRY 윙 오입력 15개를 제외하면 615개로, 전주 631개 대비 -16개(-2.5%).</b> 전체 수요는 사실상 유지됨. 금주 일별 총량은 105 → 94 → 80 → 58 → 76 → 78 → 139개로 토요일 반등이 매우 큼.</div>
+<div class="insight"><b>지점별로는 BBY·LGY·MET가 증가.</b> SRY 83→62(-25.3%, 바코드 보정), ROB 67→40(-40.3%), BBY 100→108(+8.0%), LGY 161→181(+12.4%), MET 220→224(+1.8%)로 구성 변화가 큼.</div>
+<div class="insight"><b>윙세트는 211988로 9/4–9/12 124개가 확인되고, SRY 금·토 15개가 211493으로 오입력되어 보정 누적은 139개.</b> 211988 기준 9/4–9/6 초기 37개 이후 9/7–9/12에 87개가 추가됐으며, 여기에 SRY 오입력 15개를 별도 가산. YAL도 9/9부터 판매가 확인됨.</div>
+<div class="insight"><b>윙세트 SRY는 POS 바코드 오입력 보정이 필요함.</b> 9/11~9/12 금·토 윙 15개가 기존 오리지널 바코드 211493으로 처리됐으므로 윙에 +15개, 오리지널에서 -15개 보정. 9/13부터 211988 정상 사용.</div>
 </div></section>
 <div class="foot">판매금액 기준: $9.99/개. 오리지널 6/14–8/22는 기존 실제 매출 자료, 이후 구간은 Qty×$9.99 환산. 윙세트는 제공 화면 기준.</div>
 </div>
@@ -67,13 +67,13 @@ const stores=["BBY","SRY","ROB","LGY","MET"];
 const weeks=["6/14","6/21","6/28","7/5","7/12","7/19","7/26","8/2","8/9","8/16","8/23","8/30","9/6"];
 const hist={
 BBY:[143,112,118,127,107,112,105,117,115,105,104,100,108],
-SRY:[57,50,45,59,39,37,64,101,95,60,63,83,75],
+SRY:[57,50,45,59,39,37,64,101,95,60,63,83,62],
 ROB:[0,24,19,46,61,67,66,68,66,66,63,67,40],
 LGY:[105,153,239,169,103,141,140,162,169,145,171,161,181],
 MET:[8,44,43,27,24,22,28,25,24,187,254,220,224]};
 const days=["9/6 일","9/7 월","9/8 화","9/9 수","9/10 목","9/11 금","9/12 토"];
 const daily={BBY:[25,18,11,6,11,14,23],SRY:[8,15,7,4,12,15,16],ROB:[0,3,10,4,6,9,8],LGY:[36,30,22,16,17,16,44],MET:[36,28,30,28,30,24,48]};
-const prev={BBY:100,SRY:83,ROB:67,LGY:161,MET:220}, curr={BBY:108,SRY:75,ROB:40,LGY:181,MET:224};
+const prev={BBY:100,SRY:83,ROB:67,LGY:161,MET:220}, curr={BBY:108,SRY:62,ROB:40,LGY:181,MET:224};
 const wingDays=["9/4 금","9/5 토","9/6 일","9/7 월","9/8 화","9/9 수","9/10 목","9/11 금","9/12 토"];
 const wingStores=["BBY","SRY","ROB","LGY","YAL","MET"];
 const wing={BBY:[5,10,3,2,6,3,1,9,9],SRY:[0,0,0,0,0,0,0,0,0],ROB:[5,1,5,4,0,8,4,0,2],LGY:[1,5,2,0,8,4,8,8,4],YAL:[0,0,0,0,0,1,2,2,2],MET:[0,0,0,0,0,0,0,0,0]};
@@ -106,7 +106,7 @@ function render(){
  lineChart("wingTrend",wingDays,wing,C,state.wingTrend,"wingFocus",false);legend("wingLegend",wingStores,"wingFocus");applyFocus("wingTrend","wingFocus");
  const totals=wingDays.map((_,i)=>wingStores.reduce((a,s)=>a+wing[s][i],0)); totalBars("wingTotal",wingDays,totals,state.wingTotal);
  document.getElementById("origTable").innerHTML=stores.map(s=>{let pct=(curr[s]-prev[s])/prev[s]*100;return `<tr><td><b style="color:${C[s]}">${s}</b></td><td>${prev[s]}</td><td><b>${curr[s]}</b></td><td style="color:${pct>=0?"#65d58b":"#ff7d86"}">${pct>=0?"+":""}${pct.toFixed(1)}%</td><td>${money(curr[s]*9.99)}</td></tr>`}).join("");
- const wt=Object.fromEntries(wingStores.map(s=>[s,wing[s].reduce((a,b)=>a+b,0)]));document.getElementById("wingTable").innerHTML=wingStores.map(s=>`<tr><td><b style="color:${C[s]}">${s}</b></td><td>${wt[s]}</td><td>${money(wt[s]*9.99)}</td><td>${s==="SRY"?"9/4–9/5는 230988 별도":"211988 기준"}</td></tr>`).join("");
+ const wt=Object.fromEntries(wingStores.map(s=>[s,wing[s].reduce((a,b)=>a+b,0)]));document.getElementById("wingTable").innerHTML=wingStores.map(s=>`<tr><td><b style="color:${C[s]}">${s}</b></td><td>${wt[s]}</td><td>${money(wt[s]*9.99)}</td><td>${s==="SRY"?"9/11–9/12 211493 오입력 15개 별도":"211988 기준"}</td></tr>`).join("");
  document.querySelectorAll(".toggle").forEach(t=>{let k=t.dataset.key;t.querySelectorAll("button").forEach(b=>b.classList.toggle("active",state[k]===b.dataset.mode))})
 }
 document.querySelectorAll(".toggle button").forEach(b=>b.onclick=()=>{let k=b.parentElement.dataset.key;state[k]=b.dataset.mode;render()});
