@@ -6,6 +6,8 @@
 .tabs{display:flex;gap:10px;margin:18px 0}.tab{border:1px solid #36516e;background:#0b192b;color:#b9c9da;padding:11px 18px;border-radius:999px;font-size:16px;font-weight:900;cursor:pointer}.tab.on{background:#edf6ff;color:#10243a}.tab.fish.on{background:#d99032;color:#2b1607;border-color:#f2b85f}.view{display:none}.view.on{display:block}.fishHero{position:relative;overflow:hidden;background:linear-gradient(135deg,#5b2e13,#a85f22 58%,#d99438)!important;border-color:#d99438}.fishHero:after{content:"🐟";position:absolute;right:36px;top:-8px;font-size:150px;opacity:.42;transform:rotate(-8deg);filter:sepia(1) saturate(2.2) hue-rotate(345deg) brightness(1.2);text-shadow:0 8px 18px #2b160799}.fishCallout{background:linear-gradient(135deg,#f2b85f,#d7842b);color:#2b1607;border:2px solid #ffd68b;padding:20px 24px;border-radius:18px;font-size:25px;font-weight:950;margin:18px 0;box-shadow:0 10px 28px #0004}.fishPanel{border-color:#7b4b26;background:linear-gradient(180deg,#2b1b14,#17151a)}.fishKpi{border-color:#754722;background:linear-gradient(180deg,#3b2417,#201813)}.fishBox{background:#1e1713;border-color:#664326}.fishAccent{color:#f2b85f}.fishTable th{color:#e4b77d}.fishNote{background:#3a2416;border-color:#8a592c;color:#ffe4bd}
 
 .productIcon{display:inline-flex;align-items:center;justify-content:center;width:58px;height:58px;border-radius:16px;margin-right:12px;vertical-align:middle;font-size:38px;line-height:1;background:#ffffff12;border:1px solid #ffffff24;filter:drop-shadow(0 4px 8px #0005)}.fishIcon{font-size:42px;background:#f2b85f22;border-color:#f2b85f66}.heroTitle{display:flex;align-items:center}.fishMark{display:inline-flex;align-items:center;gap:8px}.fishShape{display:inline-block;font-size:44px;transform:scaleX(1.15);filter:sepia(1) saturate(2.4) hue-rotate(345deg) brightness(1.15)}
+
+.alertZero{margin:14px 0;background:linear-gradient(135deg,#471719,#2a1115);border:2px solid #ff656f;border-radius:16px;padding:17px 20px;box-shadow:0 0 24px #ff4b5540}.alertZero strong{color:#ff7d86;font-size:22px}.alertZero .lights{font-size:24px;margin-right:8px}.zeroRow td{background:#3a171b;color:#ffd4d7}.zeroBadge{display:inline-block;background:#ff5f69;color:#24070a;padding:5px 9px;border-radius:999px;font-weight:950}
 </style></head><body><div class="page">
 <section class="hero"><h1>주간 판매 분석 대시보드</h1><p>2026-09-20–09-26 · 일요일–토요일 7일 완결주</p></section>
 <div class="tabs"><button class="tab on" data-view="chickenView">한치킨</button><button class="tab fish" data-view="fishView">붕어빵</button></div>
@@ -65,6 +67,7 @@
 <div id="fishView" class="view">
 <section class="hero fishHero"><h1 class="heroTitle"><span class="productIcon fishIcon">🐟</span>붕어빵 판매 분석</h1><p>한남 붕어빵 04081 · BBY + MET · 2026-09-20–09-26</p></section>
 <div class="fishCallout"><span class="fishShape">🐟</span> 상시운영 요망 · 7일 연속 판매 확인. 일평균 387개 수준으로 상시 판매 운영 검토 가치가 높음.</div>
+<div class="alertZero"><span class="lights">🚨</span><strong>타 지점 판매 0</strong><div class="sub" style="margin-top:6px;color:#ffd1d4">현재 붕어빵 판매는 BBY·MET 2개 지점만 확인. SRY · ROB · LGY · YAL은 판매 0으로 표시되며, 타 지점 운영 확대 검토 필요.</div></div>
 <div class="kpis">
 <div class="kpi fishKpi"><small>주간 판매</small><strong>2,709개</strong><div class="sub">BBY + MET</div></div>
 <div class="kpi fishKpi"><small>일평균</small><strong>387개</strong><div class="sub">7일 기준</div></div>
@@ -75,12 +78,12 @@
 <section class="panel fishPanel"><h2>주간 판매 퍼포먼스</h2><div class="desc">일별 판매수량 기준. 판매단가는 지점별로 달라 수량 중심으로 분석.</div>
 <div class="grid2">
 <div class="box fishBox"><div class="title"><span class="fishMark"><span class="fishShape">🐟</span> 일별 붕어빵 판매 추이</span></div><div class="desc">포인트에 마우스를 올리면 지점·날짜·수량 표시</div><div id="fishDaily" class="chart"></div><div id="fishLegend" class="legend"></div></div>
-<div class="box fishBox"><div class="title">지점별 주간 누계</div><div id="fishBranch" class="chart"></div><table class="fishTable"><thead><tr><th>지점</th><th>주간 판매</th><th>비중</th><th>일평균</th></tr></thead><tbody><tr><td><b style="color:#d36a43">BBY</b></td><td>1,231</td><td>45.4%</td><td>175.9</td></tr><tr><td><b style="color:#e6a647">MET</b></td><td>1,478</td><td>54.6%</td><td>211.1</td></tr><tr><td><b>합계</b></td><td><b>2,709</b></td><td><b>100%</b></td><td><b>387.0</b></td></tr></tbody></table></div>
+<div class="box fishBox"><div class="title">지점별 주간 누계</div><div id="fishBranch" class="chart"></div><table class="fishTable"><thead><tr><th>지점</th><th>주간 판매</th><th>비중</th><th>일평균</th></tr></thead><tbody><tr><td><b style="color:#d36a43">BBY</b></td><td>1,231</td><td>45.4%</td><td>175.9</td></tr><tr><td><b style="color:#e6a647">MET</b></td><td>1,478</td><td>54.6%</td><td>211.1</td></tr><tr><td><b>합계</b></td><td><b>2,709</b></td><td><b>100%</b></td><td><b>387.0</b></td></tr><tr class="zeroRow"><td><b>SRY · ROB · LGY · YAL</b></td><td><span class="zeroBadge">0</span></td><td>-</td><td>0</td></tr></tbody></table></div>
 </div>
 <div class="ins">
 <div style="border-left-color:#d99032"><b>주말·금요일 강세</b><br>9/25 367개, 9/26 370개로 주 후반 판매가 가장 높음.</div>
 <div style="border-left-color:#d99032"><b>MET 안정적 우위</b><br>주간 1,478개로 전체의 54.6%. 7일 모두 71개 이상 판매.</div>
-<div style="border-left-color:#d99032"><b>BBY 변동폭 큼</b><br>114개에서 252개 범위. 9/20 252개, 9/26 237개로 주말 수요 강함.</div>
+<div style="border-left-color:#ff656f"><b>🚨 타 지점 0</b><br>SRY·ROB·LGY·YAL 판매 없음. BBY·MET 실적을 근거로 타 지점 테스트 및 운영 확대 검토 필요.</div><div style="border-left-color:#d99032"><b>BBY 변동폭 큼</b><br>114개에서 252개 범위. 9/20 252개, 9/26 237개로 주말 수요 강함.</div>
 </div>
 <div class="note fishNote"><b>운영 판단</b> · BBY와 MET 모두 7일 연속 판매가 발생했고 전점 합산 일평균 387개. 단기 이벤트성 품목보다 반복 구매가 확인되는 운영형 품목으로 볼 여지가 있어 <b>상시운영 요망</b>. 다만 현재 자료는 BBY·MET 2개 지점만 포함하므로 타 지점 확대 판단은 별도 테스트 필요.</div>
 </section>
