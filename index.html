@@ -3,12 +3,14 @@
 .promoGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}.promoCard{background:#0a1728;border:1px solid #294563;border-radius:14px;padding:16px}.promoCard small{color:var(--m);font-weight:800}.promoCard strong{display:block;font-size:28px;margin:6px 0}.warn{border-left:4px solid var(--y)!important}.note{background:#17243a;border:1px solid #405675;padding:14px;border-radius:12px;color:#dbe7f5;line-height:1.6;margin-top:12px}@media(max-width:1000px){.promoGrid{grid-template-columns:repeat(2,1fr)}}
 .tooltip{position:fixed;z-index:20;pointer-events:none;background:#06101d;border:1px solid #58718d;color:#fff;padding:8px 10px;border-radius:8px;font-size:14px;font-weight:800;box-shadow:0 8px 24px #0008;display:none}.pt:hover{r:8}.hoverable{cursor:pointer}
 
-.tabs{display:flex;gap:10px;margin:18px 0}.tab{border:1px solid #36516e;background:#0b192b;color:#b9c9da;padding:11px 18px;border-radius:999px;font-size:16px;font-weight:900;cursor:pointer}.tab.on{background:#edf6ff;color:#10243a}.tab.fish.on{background:#d99032;color:#2b1607;border-color:#f2b85f}.view{display:none}.view.on{display:block}.fishHero{position:relative;overflow:hidden;background:linear-gradient(135deg,#5b2e13,#a85f22 58%,#d99438)!important;border-color:#d99438}.fishHero:after{content:"🐟";position:absolute;right:34px;top:4px;font-size:108px;opacity:.18;transform:rotate(-8deg)}.fishCallout{background:linear-gradient(135deg,#f2b85f,#d7842b);color:#2b1607;border:2px solid #ffd68b;padding:20px 24px;border-radius:18px;font-size:25px;font-weight:950;margin:18px 0;box-shadow:0 10px 28px #0004}.fishPanel{border-color:#7b4b26;background:linear-gradient(180deg,#2b1b14,#17151a)}.fishKpi{border-color:#754722;background:linear-gradient(180deg,#3b2417,#201813)}.fishBox{background:#1e1713;border-color:#664326}.fishAccent{color:#f2b85f}.fishTable th{color:#e4b77d}.fishNote{background:#3a2416;border-color:#8a592c;color:#ffe4bd}
+.tabs{display:flex;gap:10px;margin:18px 0}.tab{border:1px solid #36516e;background:#0b192b;color:#b9c9da;padding:11px 18px;border-radius:999px;font-size:16px;font-weight:900;cursor:pointer}.tab.on{background:#edf6ff;color:#10243a}.tab.fish.on{background:#d99032;color:#2b1607;border-color:#f2b85f}.view{display:none}.view.on{display:block}.fishHero{position:relative;overflow:hidden;background:linear-gradient(135deg,#5b2e13,#a85f22 58%,#d99438)!important;border-color:#d99438}.fishHero:after{content:"🐟";position:absolute;right:36px;top:-8px;font-size:150px;opacity:.42;transform:rotate(-8deg);filter:sepia(1) saturate(2.2) hue-rotate(345deg) brightness(1.2);text-shadow:0 8px 18px #2b160799}.fishCallout{background:linear-gradient(135deg,#f2b85f,#d7842b);color:#2b1607;border:2px solid #ffd68b;padding:20px 24px;border-radius:18px;font-size:25px;font-weight:950;margin:18px 0;box-shadow:0 10px 28px #0004}.fishPanel{border-color:#7b4b26;background:linear-gradient(180deg,#2b1b14,#17151a)}.fishKpi{border-color:#754722;background:linear-gradient(180deg,#3b2417,#201813)}.fishBox{background:#1e1713;border-color:#664326}.fishAccent{color:#f2b85f}.fishTable th{color:#e4b77d}.fishNote{background:#3a2416;border-color:#8a592c;color:#ffe4bd}
+
+.productIcon{display:inline-flex;align-items:center;justify-content:center;width:58px;height:58px;border-radius:16px;margin-right:12px;vertical-align:middle;font-size:38px;line-height:1;background:#ffffff12;border:1px solid #ffffff24;filter:drop-shadow(0 4px 8px #0005)}.fishIcon{font-size:42px;background:#f2b85f22;border-color:#f2b85f66}.heroTitle{display:flex;align-items:center}.fishMark{display:inline-flex;align-items:center;gap:8px}.fishShape{display:inline-block;font-size:44px;transform:scaleX(1.15);filter:sepia(1) saturate(2.4) hue-rotate(345deg) brightness(1.15)}
 </style></head><body><div class="page">
 <section class="hero"><h1>주간 판매 분석 대시보드</h1><p>2026-09-20–09-26 · 일요일–토요일 7일 완결주</p></section>
 <div class="tabs"><button class="tab on" data-view="chickenView">한치킨</button><button class="tab fish" data-view="fishView">붕어빵</button></div>
 <div id="chickenView" class="view on">
-<section class="hero"><h1>한치킨 주간 판매 보고서</h1><p>한치킨 + 윙 통합 기준 · 주간 기준 일요일–토요일 · 금주 2026-09-20–09-26</p></section>
+<section class="hero"><h1 class="heroTitle"><span class="productIcon">🍗</span>한치킨 주간 판매 보고서</h1><p>한치킨 + 윙 통합 기준 · 주간 기준 일요일–토요일 · 금주 2026-09-20–09-26</p></section>
 
 <div class="kpis">
 <div class="kpi"><small>금주 7일 판매</small><strong>632개</strong><div class="sub">9/20–9/26 · 완결주</div></div>
@@ -61,8 +63,8 @@
 
 </div>
 <div id="fishView" class="view">
-<section class="hero fishHero"><h1>붕어빵 판매 분석</h1><p>한남 붕어빵 04081 · BBY + MET · 2026-09-20–09-26</p></section>
-<div class="fishCallout">🐟 상시운영 요망 · 7일 연속 판매 확인. 일평균 387개 수준으로 상시 판매 운영 검토 가치가 높음.</div>
+<section class="hero fishHero"><h1 class="heroTitle"><span class="productIcon fishIcon">🐟</span>붕어빵 판매 분석</h1><p>한남 붕어빵 04081 · BBY + MET · 2026-09-20–09-26</p></section>
+<div class="fishCallout"><span class="fishShape">🐟</span> 상시운영 요망 · 7일 연속 판매 확인. 일평균 387개 수준으로 상시 판매 운영 검토 가치가 높음.</div>
 <div class="kpis">
 <div class="kpi fishKpi"><small>주간 판매</small><strong>2,709개</strong><div class="sub">BBY + MET</div></div>
 <div class="kpi fishKpi"><small>일평균</small><strong>387개</strong><div class="sub">7일 기준</div></div>
@@ -72,7 +74,7 @@
 </div>
 <section class="panel fishPanel"><h2>주간 판매 퍼포먼스</h2><div class="desc">일별 판매수량 기준. 판매단가는 지점별로 달라 수량 중심으로 분석.</div>
 <div class="grid2">
-<div class="box fishBox"><div class="title">🐟 일별 붕어빵 판매 추이</div><div class="desc">포인트에 마우스를 올리면 지점·날짜·수량 표시</div><div id="fishDaily" class="chart"></div><div id="fishLegend" class="legend"></div></div>
+<div class="box fishBox"><div class="title"><span class="fishMark"><span class="fishShape">🐟</span> 일별 붕어빵 판매 추이</span></div><div class="desc">포인트에 마우스를 올리면 지점·날짜·수량 표시</div><div id="fishDaily" class="chart"></div><div id="fishLegend" class="legend"></div></div>
 <div class="box fishBox"><div class="title">지점별 주간 누계</div><div id="fishBranch" class="chart"></div><table class="fishTable"><thead><tr><th>지점</th><th>주간 판매</th><th>비중</th><th>일평균</th></tr></thead><tbody><tr><td><b style="color:#d36a43">BBY</b></td><td>1,231</td><td>45.4%</td><td>175.9</td></tr><tr><td><b style="color:#e6a647">MET</b></td><td>1,478</td><td>54.6%</td><td>211.1</td></tr><tr><td><b>합계</b></td><td><b>2,709</b></td><td><b>100%</b></td><td><b>387.0</b></td></tr></tbody></table></div>
 </div>
 <div class="ins">
