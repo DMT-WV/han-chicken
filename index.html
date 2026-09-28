@@ -18,29 +18,36 @@
 <div class="box"><div class="title">6월 이후 주간 총 판매 추이</div><div class="desc">마지막 9/20은 9/20–9/26 완결주</div><div class="toggle"><button class="on" data-c="weekly" data-m="qty">판매갯수</button><button data-c="weekly" data-m="sales">판매금액</button></div><div id="weekly" class="chart"></div><div id="weeklyLegend" class="legend"></div></div>
 <div class="box"><div class="title">지점별 전주 완결 vs 금주 7일 판매</div><div class="desc">동일 7일 기준 비교</div><div class="toggle"><button class="on" data-c="branch" data-m="qty">판매갯수</button><button data-c="branch" data-m="sales">판매금액</button></div><div id="branch" class="chart"></div><div id="branchLegend" class="legend"></div></div>
 <div class="box"><div class="title">금주 일별 지점 추이 · 9/20–9/26</div><div class="desc">레전드/선/포인트 클릭 → 선택 지점 포커스</div><div class="toggle"><button class="on" data-c="daily" data-m="qty">판매갯수</button><button data-c="daily" data-m="sales">판매금액</button></div><div id="daily" class="chart"></div><div id="legend" class="legend"></div></div>
-<div class="box"><div class="title">금주 지점별 7일 집계</div><table><thead><tr><th>지점</th><th>전주 7일</th><th>금주 6일</th><th>금주 비중</th><th>금주 금액</th></tr></thead><tbody id="tbl"></tbody></table></div>
+<div class="box"><div class="title">금주 지점별 7일 집계</div><table><thead><tr><th>지점</th><th>전주 7일</th><th>금주 7일</th><th>금주 비중</th><th>금주 금액</th></tr></thead><tbody id="tbl"></tbody></table><div class="desc" style="margin-top:8px">* 콜라 커버리지 = 8801 등록수 ÷ (한치킨 판매수량 ÷ 2). 실제 증정률이 아닌 이론상 최대 증정기회 대비 POS 등록 지표.</div></div>
 </div>
 <div class="ins">
-<div><b>금주 6일 632개</b><br>전주 818개 대비 632개로 186개 감소, -22.7%.</div>
-<div><b>MET 199개</b><br>6일 누계 기준 전체의 31.5%. LGY 140개, BBY 97개 순.</div>
+<div><b>금주 7일 632개</b><br>전주 818개 대비 632개로 186개 감소, -22.7%.</div>
+<div><b>MET 199개</b><br>7일 기준 전체의 31.5%. LGY 167개, BBY 124개 순.</div>
 <div><b>9/20 일요일 124개</b><br>7일 중 최고 판매일. 9/26 토요일 117개, 9/25 금요일 101개 순.</div>
 </div></section>
 
 <section class="panel"><h2>콜라·생수 증정 트래킹</h2>
 <div class="desc">이번 주 전사 확대: 한치킨 2개 구매 시 콜라 증정. 생수 코드는 한치킨 1개 구매 시 증정용. 아래 수량은 실제 증정량이 아니라 POS에 등록된 증정 코드 수량.</div>
 <div class="promoGrid">
-<div class="promoCard"><small>콜라 코드 등록</small><strong>32건</strong><div class="sub">9/20–9/25</div></div>
-<div class="promoCard"><small>생수 코드 등록</small><strong>68건</strong><div class="sub">9/20–9/25</div></div>
+<div class="promoCard"><small>콜라 코드 등록</small><strong>32건</strong><div class="sub">9/20–9/26</div></div>
+<div class="promoCard"><small>생수 코드 등록</small><strong>68건</strong><div class="sub">9/20–9/26</div></div>
 <div class="promoCard"><small>LGY 콜라 등록</small><strong>19건</strong><div class="sub">전체 콜라 등록의 59.4%</div></div>
 <div class="promoCard"><small>한치킨 판매</small><strong>632개</strong><div class="sub">동일 7일</div></div>
 </div>
+<div class="promoGrid">
+<div class="promoCard"><small>생수 등록률</small><strong>10.8%</strong><div class="sub">68 ÷ 한치킨 632개</div></div>
+<div class="promoCard"><small>콜라 등록 커버리지</small><strong>10.1%</strong><div class="sub">32 ÷ 이론상 최대 316회</div></div>
+<div class="promoCard"><small>LGY 콜라 커버리지</small><strong>22.8%</strong><div class="sub">19 ÷ (167개 ÷ 2)</div></div>
+<div class="promoCard"><small>전사 콜라 미등록 가능성</small><strong>높음</strong><div class="sub">영수증 단위 확인 필요</div></div>
+</div>
+<div class="note"><b>비율 해석</b> · 생수 등록률은 판매수량 대비 8800 등록수의 단순 비율. 콜라 등록 커버리지는 한치킨 2개당 1회 증정을 모두 받을 수 있었다고 가정한 <b>이론상 최대 증정기회</b> 대비 8801 등록수 비율이다. 실제 2개 이상 구매 영수증 수를 모르므로 실제 증정률로 해석하면 안 됨.</div>
 <div class="grid2">
 <div class="box"><div class="title">일별 증정 코드 등록</div><div id="promoDaily" class="chart"></div></div>
-<div class="box"><div class="title">지점별 증정 코드 등록</div><table><thead><tr><th>지점</th><th>한치킨</th><th>생수</th><th>콜라</th></tr></thead><tbody id="promoTbl"></tbody></table></div>
+<div class="box"><div class="title">지점별 증정 코드 등록</div><table><thead><tr><th>지점</th><th>한치킨</th><th>생수</th><th>생수 등록률</th><th>콜라</th><th>콜라 커버리지*</th></tr></thead><tbody id="promoTbl"></tbody></table></div>
 </div>
 <div class="ins">
-<div class="warn"><b>등록수 ≠ 실제 증정수</b><br>현장에서 상품만 증정하고 8800/8801 코드를 POS에 등록하지 않으면 실제 증정량보다 낮게 집계됨.</div>
-<div><b>LGY 등록 비중 높음</b><br>콜라 등록 32건 중 19건이 LGY. 랭리 파일럿 경험으로 POS 등록이 상대적으로 잘 이뤄졌을 가능성과 실제 이용률을 함께 봐야 함.</div>
+<div class="warn"><b>등록수와 판매량 간 차이 큼</b><br>생수 등록률 10.8%, 콜라 이론상 등록 커버리지 10.1%. 현장 미등록 가능성이 있으나 실제 미등록률은 영수증 단위 검증 전에는 확정할 수 없음.</div>
+<div><b>지점별 등록 편차 큼</b><br>콜라 커버리지 지표는 LGY 22.8%, SRY 17.5%, ROB 8.5%, BBY 6.5%, MET 1.0%, YAL 0.0%. 실제 고객 이용률과 캐셔 등록 준수율이 혼재된 값.</div>
 <div><b>효과 측정 전제</b><br>2개 구매 고객 수는 일별 총 판매수량만으로 계산할 수 없음. 영수증 단위 구매수량과 8801 등록을 매칭해야 정확한 콜라 증정률 산출 가능.</div>
 </div>
 <div class="note"><b>운영 제안</b> · 캐셔가 증정 시 8800(생수) 또는 8801(콜라)을 반드시 함께 스캔하도록 통일. 일 마감 시 지점별 한치킨 판매 영수증과 증정 코드 등록 건수를 대조하면 프로모션 실제 사용률과 미등록 여부를 분리해서 볼 수 있음.</div>
@@ -65,6 +72,7 @@ const waterDaily=[6,4,9,1,12,17,19],cokeDaily=[5,3,1,1,3,8,11];
 let mode={weekly:"qty",branch:"qty",daily:"qty"},focus=null;
 const money=v=>"$"+v.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2});
 const V=(v,m)=>m==="sales"?v*9.99:v;
+const pct=(a,b)=>b?((a/b)*100).toFixed(1)+"%":"-";
 
 function tipBind(root){
  const tip=document.getElementById("tip");
@@ -96,7 +104,7 @@ function render(){
  document.querySelectorAll("#legend .leg").forEach(n=>n.onclick=()=>{focus=focus===n.dataset.st?null:n.dataset.st;render()});
  document.querySelectorAll("#daily [data-st],#legend [data-st]").forEach(n=>n.classList.toggle("dim",!!focus&&n.dataset.st!==focus));
  document.getElementById("tbl").innerHTML=stores.map(s=>`<tr><td><b style="color:${C[s]}">${s}</b></td><td>${prev[s]}</td><td><b>${cur[s]}</b></td><td>${(cur[s]/632*100).toFixed(1)}%</td><td>${money(cur[s]*9.99)}</td></tr>`).join("");
- document.getElementById("promoTbl").innerHTML=stores.map(s=>`<tr><td><b style="color:${C[s]}">${s}</b></td><td>${cur[s]}</td><td>${water[s]}</td><td><b>${coke[s]}</b></td></tr>`).join("");
+ document.getElementById("promoTbl").innerHTML=stores.map(s=>`<tr><td><b style="color:${C[s]}">${s}</b></td><td>${cur[s]}</td><td>${water[s]}</td><td>${pct(water[s],cur[s])}</td><td><b>${coke[s]}</b></td><td><b>${pct(coke[s],cur[s]/2)}</b></td></tr>`).join("")+`<tr><td><b>전점</b></td><td><b>632</b></td><td><b>68</b></td><td><b>10.8%</b></td><td><b>32</b></td><td><b>10.1%</b></td></tr>`;
  document.querySelectorAll(".toggle button").forEach(b=>b.classList.toggle("on",mode[b.dataset.c]===b.dataset.m))
 }
 document.querySelectorAll(".toggle button").forEach(b=>b.onclick=()=>{mode[b.dataset.c]=b.dataset.m;render()});render();
