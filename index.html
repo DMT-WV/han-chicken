@@ -1,9 +1,14 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>한치킨 통합 주간 판매 보고서 · 2026-09-26</title><style>
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>한치킨 · 붕어빵 주간 판매 분석 · 2026-09-26</title><style>
 :root{--bg:#07111f;--p:#102036;--p2:#142944;--line:#294563;--t:#f4f7fb;--m:#9fb1c7;--g:#66d58b;--r:#ff7d86;--y:#ffd166}*{box-sizing:border-box}body{margin:0;background:linear-gradient(#07101d,#0b1728);color:var(--t);font-family:Arial,"Apple SD Gothic Neo","Noto Sans KR",sans-serif}.page{max-width:1650px;margin:auto;padding:28px}.hero,.panel,.kpi{border:1px solid var(--line);background:linear-gradient(180deg,var(--p2),var(--p));box-shadow:0 10px 28px #0003}.hero{padding:28px;border-radius:22px;background:linear-gradient(135deg,#123052,#174d7e)}h1{font-size:38px;margin:0 0 8px}.hero p,.sub,.desc{color:var(--m)}.hero p{font-size:18px}.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin:18px 0}.kpi{padding:18px;border-radius:16px}.kpi small{font-size:14px;color:var(--m);font-weight:800}.kpi strong{display:block;font-size:30px;margin:6px 0}.panel{border-radius:18px;padding:22px;margin-top:18px}h2{font-size:28px;margin:0}.grid2{display:grid;grid-template-columns:1.25fr 1fr;gap:16px;margin-top:16px}.box{background:#0a1728;border:1px solid #263e5b;border-radius:15px;padding:16px}.title{font-size:21px;font-weight:900}.chart{height:470px;margin-top:10px}svg{width:100%;height:100%;overflow:visible}.axis{fill:#b8c7d8;font-size:15px;font-weight:700}.grid{stroke:#29405b}.val{fill:#fff;font-size:15px;font-weight:900}.legend{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}.leg{font-weight:900;cursor:pointer;padding:7px 9px;border-radius:8px}.sw{display:inline-block;width:22px;height:5px;margin-right:6px;vertical-align:middle}.dim{opacity:.1}.series,.pt{cursor:pointer;transition:.2s}table{width:100%;border-collapse:collapse;margin-top:12px;font-size:16px}th,td{padding:12px 10px;border-bottom:1px solid #29405b;text-align:right}th:first-child,td:first-child{text-align:left}th{color:#aebdd0}.ins{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:15px}.ins div{background:#0a1728;border-left:4px solid #5baeff;padding:15px;border-radius:10px;line-height:1.55}.foot{font-size:13px;color:#8497ad;margin:18px 3px}.toggle{display:flex;justify-content:flex-end;gap:4px}.toggle button{background:#091525;border:1px solid #29405d;color:#aebdd0;padding:8px 12px;border-radius:8px;font-weight:900;cursor:pointer}.toggle button.on{background:#edf6ff;color:#10243a}@media(max-width:1000px){.kpis{grid-template-columns:repeat(2,1fr)}.grid2,.ins{grid-template-columns:1fr}.page{padding:14px}}
 .promoGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}.promoCard{background:#0a1728;border:1px solid #294563;border-radius:14px;padding:16px}.promoCard small{color:var(--m);font-weight:800}.promoCard strong{display:block;font-size:28px;margin:6px 0}.warn{border-left:4px solid var(--y)!important}.note{background:#17243a;border:1px solid #405675;padding:14px;border-radius:12px;color:#dbe7f5;line-height:1.6;margin-top:12px}@media(max-width:1000px){.promoGrid{grid-template-columns:repeat(2,1fr)}}
 .tooltip{position:fixed;z-index:20;pointer-events:none;background:#06101d;border:1px solid #58718d;color:#fff;padding:8px 10px;border-radius:8px;font-size:14px;font-weight:800;box-shadow:0 8px 24px #0008;display:none}.pt:hover{r:8}.hoverable{cursor:pointer}
+
+.tabs{display:flex;gap:10px;margin:18px 0}.tab{border:1px solid #36516e;background:#0b192b;color:#b9c9da;padding:11px 18px;border-radius:999px;font-size:16px;font-weight:900;cursor:pointer}.tab.on{background:#edf6ff;color:#10243a}.tab.fish.on{background:#d99032;color:#2b1607;border-color:#f2b85f}.view{display:none}.view.on{display:block}.fishHero{position:relative;overflow:hidden;background:linear-gradient(135deg,#5b2e13,#a85f22 58%,#d99438)!important;border-color:#d99438}.fishHero:after{content:"🐟";position:absolute;right:34px;top:4px;font-size:108px;opacity:.18;transform:rotate(-8deg)}.fishCallout{background:linear-gradient(135deg,#f2b85f,#d7842b);color:#2b1607;border:2px solid #ffd68b;padding:20px 24px;border-radius:18px;font-size:25px;font-weight:950;margin:18px 0;box-shadow:0 10px 28px #0004}.fishPanel{border-color:#7b4b26;background:linear-gradient(180deg,#2b1b14,#17151a)}.fishKpi{border-color:#754722;background:linear-gradient(180deg,#3b2417,#201813)}.fishBox{background:#1e1713;border-color:#664326}.fishAccent{color:#f2b85f}.fishTable th{color:#e4b77d}.fishNote{background:#3a2416;border-color:#8a592c;color:#ffe4bd}
 </style></head><body><div class="page">
-<section class="hero"><h1>한치킨 주간 판매 보고서</h1><p>한치킨 + 윙 통합 기준 · 주간 기준 일요일–토요일 · 금주 2026-09-20–09-26 · 9/20–9/26 7일 완결</p></section>
+<section class="hero"><h1>주간 판매 분석 대시보드</h1><p>2026-09-20–09-26 · 일요일–토요일 7일 완결주</p></section>
+<div class="tabs"><button class="tab on" data-view="chickenView">한치킨</button><button class="tab fish" data-view="fishView">붕어빵</button></div>
+<div id="chickenView" class="view on">
+<section class="hero"><h1>한치킨 주간 판매 보고서</h1><p>한치킨 + 윙 통합 기준 · 주간 기준 일요일–토요일 · 금주 2026-09-20–09-26</p></section>
 
 <div class="kpis">
 <div class="kpi"><small>금주 7일 판매</small><strong>632개</strong><div class="sub">9/20–9/26 · 완결주</div></div>
@@ -53,6 +58,33 @@
 <div class="note"><b>운영 제안</b> · 캐셔가 증정 시 8800(생수) 또는 8801(콜라)을 반드시 함께 스캔하도록 통일. 일 마감 시 지점별 한치킨 판매 영수증과 증정 코드 등록 건수를 대조하면 프로모션 실제 사용률과 미등록 여부를 분리해서 볼 수 있음.</div>
 </section>
 
+
+</div>
+<div id="fishView" class="view">
+<section class="hero fishHero"><h1>붕어빵 판매 분석</h1><p>한남 붕어빵 04081 · BBY + MET · 2026-09-20–09-26</p></section>
+<div class="fishCallout">🐟 상시운영 요망 · 7일 연속 판매 확인. 일평균 387개 수준으로 상시 판매 운영 검토 가치가 높음.</div>
+<div class="kpis">
+<div class="kpi fishKpi"><small>주간 판매</small><strong>2,709개</strong><div class="sub">BBY + MET</div></div>
+<div class="kpi fishKpi"><small>일평균</small><strong>387개</strong><div class="sub">7일 기준</div></div>
+<div class="kpi fishKpi"><small>BBY 판매</small><strong>1,231개</strong><div class="sub">45.4%</div></div>
+<div class="kpi fishKpi"><small>MET 판매</small><strong>1,478개</strong><div class="sub">54.6%</div></div>
+<div class="kpi fishKpi"><small>최고 판매일</small><strong>9/26 · 370개</strong><div class="sub">BBY 237 + MET 133</div></div>
+</div>
+<section class="panel fishPanel"><h2>주간 판매 퍼포먼스</h2><div class="desc">일별 판매수량 기준. 판매단가는 지점별로 달라 수량 중심으로 분석.</div>
+<div class="grid2">
+<div class="box fishBox"><div class="title">🐟 일별 붕어빵 판매 추이</div><div class="desc">포인트에 마우스를 올리면 지점·날짜·수량 표시</div><div id="fishDaily" class="chart"></div><div id="fishLegend" class="legend"></div></div>
+<div class="box fishBox"><div class="title">지점별 주간 누계</div><div id="fishBranch" class="chart"></div><table class="fishTable"><thead><tr><th>지점</th><th>주간 판매</th><th>비중</th><th>일평균</th></tr></thead><tbody><tr><td><b style="color:#d36a43">BBY</b></td><td>1,231</td><td>45.4%</td><td>175.9</td></tr><tr><td><b style="color:#e6a647">MET</b></td><td>1,478</td><td>54.6%</td><td>211.1</td></tr><tr><td><b>합계</b></td><td><b>2,709</b></td><td><b>100%</b></td><td><b>387.0</b></td></tr></tbody></table></div>
+</div>
+<div class="ins">
+<div style="border-left-color:#d99032"><b>주말·금요일 강세</b><br>9/25 367개, 9/26 370개로 주 후반 판매가 가장 높음.</div>
+<div style="border-left-color:#d99032"><b>MET 안정적 우위</b><br>주간 1,478개로 전체의 54.6%. 7일 모두 71개 이상 판매.</div>
+<div style="border-left-color:#d99032"><b>BBY 변동폭 큼</b><br>114개에서 252개 범위. 9/20 252개, 9/26 237개로 주말 수요 강함.</div>
+</div>
+<div class="note fishNote"><b>운영 판단</b> · BBY와 MET 모두 7일 연속 판매가 발생했고 전점 합산 일평균 387개. 단기 이벤트성 품목보다 반복 구매가 확인되는 운영형 품목으로 볼 여지가 있어 <b>상시운영 요망</b>. 다만 현재 자료는 BBY·MET 2개 지점만 포함하므로 타 지점 확대 판단은 별도 테스트 필요.</div>
+</section>
+<section class="panel fishPanel"><h2>일별 상세</h2><table class="fishTable"><thead><tr><th>날짜</th><th>BBY</th><th>MET</th><th>합계</th><th>BBY 비중</th><th>MET 비중</th></tr></thead><tbody id="fishTbl"></tbody></table></section>
+<div class="foot">붕어빵 PLU 04081 기준. 9/20–9/26 일별 판매수량: BBY 252,114,119,162,129,218,237 / MET 100,71,87,122,101,149,133. 금액은 화면상 지점별 단가 차이가 확인되어 수량 분석과 분리.</div>
+</div>
 <div class="foot">주간 기준: 일요일–토요일. 금주 자료는 9/20–9/26 일요일–토요일 7일 완결주. 한치킨 판매는 선택된 한치킨/윙 품목을 통합. 증정 수량은 POS 코드 8800/8801 등록 수량으로 실제 현장 증정량과 차이가 날 수 있음. 판매금액은 $9.99/개 환산.</div>
 </div><div id="tip" class="tooltip"></div>
 
@@ -98,6 +130,19 @@ function promoChart(){
  let el=document.getElementById("promoDaily"),W=900,H=430,p={l:55,r:25,t:30,b:60},mx=20,g=(W-p.l-p.r)/promoDays.length,bw=g*.27,y=v=>p.t+(mx-v)/mx*(H-p.t-p.b),s='<svg viewBox="0 0 900 430">';
  promoDays.forEach((d,i)=>{let cx=p.l+g*i+g/2,a=waterDaily[i],b=cokeDaily[i],ya=y(a),yb=y(b);s+=`<rect x="${cx-bw-3}" y="${ya}" width="${bw}" height="${H-p.b-ya}" fill="#5DA9FF" class="hoverable" data-tip="생수 8800"/><rect x="${cx+3}" y="${yb}" width="${bw}" height="${H-p.b-yb}" fill="#FF9B57" class="hoverable" data-tip="콜라 8801"/><text class="val" x="${cx-bw/2-3}" y="${ya-8}" text-anchor="middle">${a}</text><text class="val" x="${cx+bw/2+3}" y="${yb-8}" text-anchor="middle">${b}</text><text class="axis" x="${cx}" y="405" text-anchor="middle">${d}</text>`});el.innerHTML=s+'</svg><div class="legend"><span class="leg"><i class="sw" style="background:#5DA9FF"></i>생수 8800</span><span class="leg"><i class="sw" style="background:#FF9B57"></i>콜라 8801</span></div>'
 }
+
+const fishDays=["9/20 일","9/21 월","9/22 화","9/23 수","9/24 목","9/25 금","9/26 토"];
+const fishDaily={BBY:[252,114,119,162,129,218,237],MET:[100,71,87,122,101,149,133]};
+const fishColors={BBY:"#d36a43",MET:"#e6a647"};
+function fishBars(){
+ let el=document.getElementById("fishBranch"),W=900,H=430,p={l:70,r:30,t:35,b:60},vals=[1231,1478],labs=["BBY","MET"],cols=["#d36a43","#e6a647"],mx=1650,g=(W-p.l-p.r)/2,bw=150,y=v=>p.t+(mx-v)/mx*(H-p.t-p.b),s='<svg viewBox="0 0 900 430">';
+ vals.forEach((v,i)=>{let cx=p.l+g*i+g/2,yy=y(v);s+=`<rect class="hoverable" data-tip="${labs[i]} · 주간 ${v.toLocaleString()}개" x="${cx-bw/2}" y="${yy}" width="${bw}" height="${H-p.b-yy}" rx="10" fill="${cols[i]}"/><text class="val" x="${cx}" y="${yy-12}" text-anchor="middle">${v.toLocaleString()}</text><text class="axis" x="${cx}" y="405" text-anchor="middle">${labs[i]}</text>`});el.innerHTML=s+"</svg>";tipBind(el)
+}
+function renderFish(){
+ line("fishDaily",fishDays,fishDaily,fishColors,"qty",false);fishBars();
+ document.getElementById("fishLegend").innerHTML=`<span class="leg"><i class="sw" style="background:#d36a43"></i>BBY</span><span class="leg"><i class="sw" style="background:#e6a647"></i>MET</span>`;
+ document.getElementById("fishTbl").innerHTML=fishDays.map((d,i)=>{let a=fishDaily.BBY[i],b=fishDaily.MET[i],t=a+b;return `<tr><td><b>${d}</b></td><td>${a}</td><td>${b}</td><td><b>${t}</b></td><td>${(a/t*100).toFixed(1)}%</td><td>${(b/t*100).toFixed(1)}%</td></tr>`}).join("");
+}
 function render(){
  line("weekly",weeks,{TOTAL:wt},{TOTAL:"#66b3ff"},mode.weekly);bars();line("daily",days,daily,C,mode.daily,true);promoChart(); document.getElementById("weeklyLegend").innerHTML=`<span class="leg"><i class="sw" style="background:#66b3ff"></i>전점 통합 판매</span>`; document.getElementById("branchLegend").innerHTML=`<span class="leg"><i class="sw" style="background:#56718f"></i>전주 9/13–9/19</span><span class="leg"><i class="sw" style="background:#66b3ff"></i>금주 9/20–9/26</span>`;
  document.getElementById("legend").innerHTML=stores.map(s=>`<span class="leg" data-st="${s}"><i class="sw" style="background:${C[s]}"></i>${s}</span>`).join("");
@@ -107,5 +152,6 @@ function render(){
  document.getElementById("promoTbl").innerHTML=stores.map(s=>`<tr><td><b style="color:${C[s]}">${s}</b></td><td>${cur[s]}</td><td>${water[s]}</td><td>${pct(water[s],cur[s])}</td><td><b>${coke[s]}</b></td><td><b>${pct(coke[s],cur[s]/2)}</b></td></tr>`).join("")+`<tr><td><b>전점</b></td><td><b>632</b></td><td><b>68</b></td><td><b>10.8%</b></td><td><b>32</b></td><td><b>10.1%</b></td></tr>`;
  document.querySelectorAll(".toggle button").forEach(b=>b.classList.toggle("on",mode[b.dataset.c]===b.dataset.m))
 }
-document.querySelectorAll(".toggle button").forEach(b=>b.onclick=()=>{mode[b.dataset.c]=b.dataset.m;render()});render();
+document.querySelectorAll(".toggle button").forEach(b=>b.onclick=()=>{mode[b.dataset.c]=b.dataset.m;render()});render();renderFish();
+document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.remove("on"));document.querySelectorAll(".view").forEach(x=>x.classList.remove("on"));b.classList.add("on");document.getElementById(b.dataset.view).classList.add("on")});
 </script></body></html>
