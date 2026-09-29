@@ -67,7 +67,7 @@
 <div id="fishView" class="view">
 <section class="hero fishHero"><h1 class="heroTitle">붕어빵 판매 분석</h1><p>한남 붕어빵 전지점 통합 · 2026-09-20–09-26</p></section>
 <div class="fishCallout">상시운영 요망 · 전지점 통합 2,302개 판매. BBY·MET 중심의 안정적 수요와 ROB·SRY·LGY 확장 판매 확인.</div>
-<div class="alertZero"><span class="lights">🚨</span><strong>YAL 판매 0 비상등</strong><div class="sub" style="margin-top:6px;color:#ffd1d4">BBY·MET 외 ROB·SRY·LGY에서도 판매가 확인됨. YAL만 주간 판매 0으로 운영 여부와 판매 준비 상태 점검 필요.</div></div>
+<div class="alertZero"><span class="lights">🚨</span><strong>YAL 온장고 판매 가능 여부 검토</strong><div class="sub" style="margin-top:6px;color:#ffd1d4">BBY·MET 외 ROB·SRY·LGY에서도 판매 확인. YAL은 주간 판매 0으로, 별도 제조 운영보다 온장고를 활용한 판매 가능 여부를 우선 검토.</div></div>
 <div class="kpis">
 <div class="kpi fishKpi"><small>주간 판매</small><strong>2,302개</strong><div class="sub">전지점 통합</div></div>
 <div class="kpi fishKpi"><small>일평균</small><strong>328.9개</strong><div class="sub">7일 기준</div></div>
@@ -91,9 +91,9 @@
 <div style="border-left-color:#d99032"><b>주 후반 강세</b><br>9/26 450개로 주간 최고. 9/20 407개, 9/25 384개 순.</div>
 <div style="border-left-color:#d99032"><b>BBY 핵심 매출축</b><br>주간 1,231개, 전체의 53.5%. MET 763개, 33.1%로 두 지점 합계 86.6%.</div>
 <div style="border-left-color:#66d58b"><b>ROB 판매 확인</b><br>주간 280개, 전체의 12.2%. 9/26 74개로 주 후반 상승 확인.</div>
-<div style="border-left-color:#ff656f"><b>🚨 YAL 판매 0</b><br>SRY와 LGY는 소량 판매가 시작됐으나 YAL은 7일간 판매 0. 운영 여부 점검 필요.</div>
+<div style="border-left-color:#ff656f"><b>YAL 온장고 운영 검토</b><br>YAL은 7일간 판매 0. 별도 제조 설비 운영보다 온장고를 활용한 판매 가능 여부를 우선 검토.</div>
 </div>
-<div class="note fishNote"><b>운영 판단</b> · 전지점 합산 2,302개, 일평균 328.9개. BBY와 MET이 전체의 86.6%를 차지하고 ROB에서도 280개 판매가 확인됨. SRY·LGY는 판매가 시작된 단계이며 YAL은 판매 0. <b>상시운영 요망</b>을 유지하되 지점별 운영 수준을 구분해 관리할 필요가 있음.</div>
+<div class="note fishNote"><b>운영 판단</b> · 전지점 합산 2,302개, 일평균 328.9개. BBY와 MET이 전체의 86.6%를 차지하고 ROB에서도 280개 판매가 확인됨. SRY·LGY는 판매가 시작된 단계. YAL은 온장고 판매 가능 여부를 검토해 운영 진입 방식을 결정. <b>상시운영 요망</b>을 유지하되 지점별 운영 수준을 구분해 관리할 필요가 있음.</div>
 </section>
 <section class="panel fishPanel"><h2>일별 상세</h2><table class="fishTable"><thead><tr><th>날짜</th><th>BBY</th><th>SRY</th><th>ROB</th><th>LGY</th><th>YAL</th><th>MET</th><th>합계</th></tr></thead><tbody id="fishTbl"></tbody></table></section>
 <div class="foot">붕어빵 전지점 통합 기준. 지점별 사용 PLU가 다르므로 판매수량을 통합해 분석. 9/20–9/26: BBY 1,231 / MET 763 / ROB 280 / SRY 16 / LGY 12 / YAL 0. 금액은 지점·PLU별 단가 차이가 있어 수량 분석과 분리.</div>
@@ -152,8 +152,8 @@ function fishBars(){
  vals.forEach((v,i)=>{let cx=p.l+g*i+g/2,yy=y(v),col=fishColors[labs[i]];s+=`<rect class="hoverable" data-tip="${labs[i]} · 주간 ${v.toLocaleString()}개" x="${cx-bw/2}" y="${yy}" width="${bw}" height="${Math.max(2,H-p.b-yy)}" rx="8" fill="${col}"/><text class="val" x="${cx}" y="${yy-12}" text-anchor="middle">${v.toLocaleString()}</text><text class="axis" x="${cx}" y="405" text-anchor="middle">${labs[i]}</text>`});el.innerHTML=s+"</svg>";tipBind(el)
 }
 function renderFish(){
- line("fishDaily",fishDays,fishDaily,fishColors,"qty",false);fishBars();
- document.getElementById("fishLegend").innerHTML=["BBY","SRY","ROB","LGY","YAL","MET"].map(s=>`<span class="leg"><i class="sw" style="background:${fishColors[s]}"></i>${s}</span>`).join("");
+ line("fishDaily",fishDays,fishDaily,fishColors,"qty",true);fishBars();
+ document.getElementById("fishLegend").innerHTML=["BBY","SRY","ROB","LGY","YAL","MET"].map(s=>`<span class="leg" data-st="${s}"><i class="sw" style="background:${fishColors[s]}"></i>${s}</span>`).join(""); document.querySelectorAll("#fishLegend .leg").forEach(n=>n.onclick=()=>{focus=focus===n.dataset.st?null:n.dataset.st;renderFish()}); document.querySelectorAll("#fishDaily [data-st],#fishLegend [data-st]").forEach(n=>n.classList.toggle("dim",!!focus&&n.dataset.st!==focus));
  document.getElementById("fishTbl").innerHTML=fishDays.map((d,i)=>{let vals=Object.fromEntries(Object.keys(fishDaily).map(s=>[s,fishDaily[s][i]])),t=Object.values(vals).reduce((a,b)=>a+b,0);return `<tr><td><b>${d}</b></td><td>${vals.BBY}</td><td>${vals.SRY}</td><td>${vals.ROB}</td><td>${vals.LGY}</td><td>${vals.YAL}</td><td>${vals.MET}</td><td><b>${t}</b></td></tr>`}).join("");
 }
 function render(){
