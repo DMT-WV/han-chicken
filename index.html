@@ -66,37 +66,32 @@
 </div>
 <div id="fishView" class="view">
 <section class="hero fishHero"><h1 class="heroTitle">붕어빵 판매 분석</h1><p>한남 붕어빵 전지점 통합 · 2026-09-20–09-26</p></section>
-<div class="fishCallout">상시운영 요망 · 전지점 통합 2,302개 판매. BBY·MET 중심의 안정적 수요와 ROB·SRY·LGY 확장 판매 확인.</div>
+<div class="fishCallout">상시운영 요망 · 전지점 주간 판매금액 기준으로 운영성과 관리.</div>
 <div class="alertZero"><span class="lights">🚨</span><strong>YAL 온장고 판매 가능 여부 검토</strong><div class="sub" style="margin-top:6px;color:#ffd1d4">YAL · 온장고 활용 판매 가능 여부 검토.</div></div>
 <div class="kpis">
-<div class="kpi fishKpi"><small>주간 판매</small><strong>2,302개</strong><div class="sub">전지점 통합</div></div>
-<div class="kpi fishKpi"><small>일평균</small><strong>328.9개</strong><div class="sub">7일 기준</div></div>
-<div class="kpi fishKpi"><small>BBY 판매</small><strong>1,231개</strong><div class="sub">53.5%</div></div>
-<div class="kpi fishKpi"><small>MET 판매</small><strong>763개</strong><div class="sub">33.1%</div></div>
-<div class="kpi fishKpi"><small>최고 판매일</small><strong>9/26 · 450개</strong><div class="sub">전지점 합계</div></div>
+<div class="kpi fishKpi"><small>주간 판매금액</small><strong>$7,157.61</strong><div class="sub">전지점 통합</div></div>
+<div class="kpi fishKpi"><small>일평균 판매금액</small><strong>$1,022.52</strong><div class="sub">7일 기준</div></div>
+<div class="kpi fishKpi"><small>LGY 판매금액</small><strong>$2,113.79</strong><div class="sub">29.5%</div></div>
+<div class="kpi fishKpi"><small>BBY 판매금액</small><strong>$2,049.03</strong><div class="sub">28.6%</div></div>
+<div class="kpi fishKpi"><small>MET 판매금액</small><strong>$1,523.15</strong><div class="sub">21.3%</div></div>
 </div>
-<section class="panel fishPanel"><h2>주간 판매 퍼포먼스</h2><div class="desc">전지점 일별 판매수량 기준. 지점별 PLU와 판매단가 차이가 있어 수량 중심으로 분석.</div>
+</div>
+<section class="panel fishPanel"><h2>주간 판매 퍼포먼스</h2><div class="desc">전지점 일별 실제 POS 판매금액 기준 분석.</div>
 <div class="grid2">
 <div class="box fishBox"><div class="title"><span class="fishMark"><span class="fishShape">🐟</span> 일별 붕어빵 판매금액 추이</span></div><div class="desc">포인트에 마우스를 올리면 지점·날짜·판매금액 표시</div><div id="fishDaily" class="chart"></div><div id="fishLegend" class="legend"></div></div>
-<div class="box fishBox"><div class="title">지점별 주간 판매금액</div><div id="fishBranch" class="chart"></div><table class="fishTable"><thead><tr><th>지점</th><th>주간 판매</th><th>비중</th><th>일평균</th></tr></thead><tbody>
-<tr><td><b>BBY</b></td><td>1,231</td><td>53.5%</td><td>175.9</td></tr>
-<tr><td><b>MET</b></td><td>763</td><td>33.1%</td><td>109.0</td></tr>
-<tr><td><b>ROB</b></td><td>280</td><td>12.2%</td><td>40.0</td></tr>
-<tr><td><b>SRY</b></td><td>16</td><td>0.7%</td><td>2.3</td></tr>
-<tr><td><b>LGY</b></td><td>12</td><td>0.5%</td><td>1.7</td></tr>
-<tr class="zeroRow"><td><b>YAL</b></td><td><span class="zeroBadge">0</span></td><td>0.0%</td><td>0</td></tr>
-<tr><td><b>합계</b></td><td><b>2,302</b></td><td><b>100%</b></td><td><b>328.9</b></td></tr></tbody></table></div>
+<div class="box fishBox"><div class="title">지점별 주간 판매금액</div><div id="fishBranch" class="chart"></div><table class="fishTable"><thead><tr><th>지점</th><th>주간 판매금액</th><th>금액 비중</th><th>일평균 금액</th></tr></thead><tbody>
+<tr><td><b>LGY</b></td><td>$2,113.79</td><td>29.5%</td><td>$301.97</td></tr><tr><td><b>BBY</b></td><td>$2,049.03</td><td>28.6%</td><td>$292.72</td></tr><tr><td><b>MET</b></td><td>$1,523.15</td><td>21.3%</td><td>$217.59</td></tr><tr><td><b>SRY</b></td><td>$909.98</td><td>12.7%</td><td>$130.00</td></tr><tr><td><b>ROB</b></td><td>$561.66</td><td>7.8%</td><td>$80.24</td></tr><tr class="zeroRow"><td><b>YAL</b></td><td><span class="zeroBadge">$0</span></td><td>0.0%</td><td>$0.00</td></tr>
+<tr><td><b>합계</b></td><td><b>$7,157.61</b></td><td><b>100%</b></td><td><b>$1022.52</b></td></tr></tbody></table></div>
 </div>
 <div class="ins">
-<div style="border-left-color:#d99032"><b>주 후반 강세</b><br>9/26 450개로 주간 최고. 9/20 407개, 9/25 384개 순.</div>
-<div style="border-left-color:#d99032"><b>BBY 핵심 매출축</b><br>주간 1,231개, 전체의 53.5%. MET 763개, 33.1%로 두 지점 합계 86.6%.</div>
-<div style="border-left-color:#66d58b"><b>ROB 판매 확인</b><br>주간 280개, 전체의 12.2%. 9/26 74개로 주 후반 상승 확인.</div>
-<div style="border-left-color:#ff656f"><b>YAL 온장고 운영 검토</b><br>YAL은 7일간 판매 0. 별도 제조 설비 운영보다 온장고를 활용한 판매 가능 여부를 우선 검토.</div>
+<div style="border-left-color:#d99032"><b>금액 기준 핵심 지점</b><br>LGY $2,113.79, BBY $2,049.03, MET $1,523.15 순.</div>
+<div style="border-left-color:#66d58b"><b>전지점 주간 매출</b><br>주간 합계 $7,157.61, 일평균 $1,022.52.</div>
+<div style="border-left-color:#ff656f"><b>YAL 온장고 운영 검토</b><br>YAL 판매금액 $0. 온장고 활용 판매 가능 여부 검토.</div>
 </div>
-<div class="note fishNote"><b>운영 판단</b> · 전지점 합산 2,302개, 일평균 328.9개. BBY와 MET이 전체의 86.6%를 차지하고 ROB에서도 280개 판매가 확인됨. SRY·LGY는 판매가 시작된 단계. YAL은 온장고 판매 가능 여부를 검토해 운영 진입 방식을 결정. <b>상시운영 요망</b>을 유지하되 지점별 운영 수준을 구분해 관리할 필요가 있음.</div>
+<div class="note fishNote"><b>운영 판단</b> · 붕어빵은 판매수량이 아닌 실제 POS 판매금액을 기준으로 관리. 지점별 단가와 PLU 차이를 그대로 반영해 매출 기여도를 비교하고, <b>상시운영 요망</b> 방향으로 관리.</div>
 </section>
-<section class="panel fishPanel"><h2>일별 상세</h2><table class="fishTable"><thead><tr><th>날짜</th><th>BBY</th><th>SRY</th><th>ROB</th><th>LGY</th><th>YAL</th><th>MET</th><th>합계</th></tr></thead><tbody id="fishTbl"></tbody></table></section>
-<div class="foot">붕어빵 전지점 통합 기준. 지점별 사용 PLU가 다르므로 판매수량을 통합해 분석. 9/20–9/26: BBY 1,231 / MET 763 / ROB 280 / SRY 16 / LGY 12 / YAL 0. 금액은 지점·PLU별 단가 차이가 있어 수량 분석과 분리.</div>
+<section class="panel fishPanel"><h2>일별 판매금액 상세</h2><table class="fishTable"><thead><tr><th>날짜</th><th>BBY</th><th>SRY</th><th>ROB</th><th>LGY</th><th>YAL</th><th>MET</th><th>합계</th></tr></thead><tbody id="fishTbl"></tbody></table></section>
+<div class="foot">붕어빵 전지점 통합 기준. 지점별 실제 POS 판매금액을 사용하며 판매수량은 붕어빵 분석 화면에서 제외.</div>
 </div>
 <div class="foot">주간 기준: 일요일–토요일. 금주 자료는 9/20–9/26 일요일–토요일 7일 완결주. 한치킨 판매는 선택된 한치킨/윙 품목을 통합. 증정 수량은 POS 코드 8800/8801 등록 수량으로 실제 현장 증정량과 차이가 날 수 있음. 판매금액은 $9.99/개 환산.</div>
 </div><div id="tip" class="tooltip"></div>
@@ -155,7 +150,7 @@ function fishBars(){
 function renderFish(){
  line("fishDaily",fishDays,fishAmount,fishColors,"sales",true);fishBars();
  document.getElementById("fishLegend").innerHTML=["BBY","SRY","ROB","LGY","YAL","MET"].map(s=>`<span class="leg" data-st="${s}"><i class="sw" style="background:${fishColors[s]}"></i>${s}</span>`).join(""); document.querySelectorAll("#fishLegend .leg").forEach(n=>n.onclick=()=>{focus=focus===n.dataset.st?null:n.dataset.st;renderFish()}); document.querySelectorAll("#fishDaily [data-st],#fishLegend [data-st]").forEach(n=>n.classList.toggle("dim",!!focus&&n.dataset.st!==focus));
- document.getElementById("fishTbl").innerHTML=fishDays.map((d,i)=>{let vals=Object.fromEntries(Object.keys(fishDaily).map(s=>[s,fishDaily[s][i]])),t=Object.values(vals).reduce((a,b)=>a+b,0);return `<tr><td><b>${d}</b></td><td>${vals.BBY}</td><td>${vals.SRY}</td><td>${vals.ROB}</td><td>${vals.LGY}</td><td>${vals.YAL}</td><td>${vals.MET}</td><td><b>${t}</b></td></tr>`}).join("");
+ document.getElementById("fishTbl").innerHTML=fishDays.map((d,i)=>{let vals=Object.fromEntries(Object.keys(fishAmount).map(s=>[s,fishAmount[s][i]])),t=Object.values(vals).reduce((a,b)=>a+b,0);return `<tr><td><b>${d}</b></td><td>${vals.BBY.toFixed(2)}</td><td>${vals.SRY.toFixed(2)}</td><td>${vals.ROB.toFixed(2)}</td><td>${vals.LGY.toFixed(2)}</td><td>${vals.YAL.toFixed(2)}</td><td>${vals.MET.toFixed(2)}</td><td><b>${t.toFixed(2)}</b></td></tr>`}).join("");
 }
 function render(){
  line("weekly",weeks,{TOTAL:wt},{TOTAL:"#66b3ff"},mode.weekly);bars();line("daily",days,daily,C,mode.daily,true);promoChart(); document.getElementById("weeklyLegend").innerHTML=`<span class="leg"><i class="sw" style="background:#66b3ff"></i>전점 통합 판매</span>`; document.getElementById("branchLegend").innerHTML=`<span class="leg"><i class="sw" style="background:#56718f"></i>전주 9/13–9/19</span><span class="leg"><i class="sw" style="background:#66b3ff"></i>금주 9/20–9/26</span>`;
