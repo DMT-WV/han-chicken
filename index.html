@@ -9,24 +9,24 @@
 
 .alertZero{margin:14px 0;background:linear-gradient(135deg,#471719,#2a1115);border:2px solid #ff656f;border-radius:16px;padding:17px 20px;box-shadow:0 0 24px #ff4b5540}.alertZero strong{color:#ff7d86;font-size:22px}.alertZero .lights{font-size:24px;margin-right:8px}.zeroRow td{background:#3a171b;color:#ffd4d7}.zeroBadge{display:inline-block;background:#ff5f69;color:#24070a;padding:5px 9px;border-radius:999px;font-weight:950}
 </style></head><body><div class="page">
-<section class="hero"><h1>주간 판매 분석 대시보드</h1><p>2026-09-20–09-26 · 일요일–토요일 7일 완결주</p></section>
+<section class="hero"><h1>주간 판매 분석 대시보드</h1><p>2026-09-27–10-03 · 일요일–토요일 7일 완결주</p></section>
 <div class="tabs"><button class="tab on" data-view="chickenView">한치킨</button><button class="tab fish" data-view="fishView">붕어빵</button></div>
 <div id="chickenView" class="view on">
-<section class="hero"><h1 class="heroTitle"><span class="productIcon">🍗</span>한치킨 주간 판매 보고서</h1><p>한치킨 + 윙 통합 기준 · 주간 기준 일요일–토요일 · 금주 2026-09-20–09-26</p></section>
+<section class="hero"><h1 class="heroTitle"><span class="productIcon">🍗</span>한치킨 주간 판매 보고서</h1><p>한치킨 + 윙 통합 기준 · 주간 기준 일요일–토요일 · 금주 2026-09-27–10-03</p></section>
 
 <div class="kpis">
-<div class="kpi"><small>금주 7일 판매</small><strong>632개</strong><div class="sub">9/20–9/26 · 완결주</div></div>
+<div class="kpi"><small>금주 7일 판매</small><strong>632개</strong><div class="sub">9/27–10/3 · 완결주</div></div>
 <div class="kpi"><small>일평균 판매</small><strong>90.3개</strong><div class="sub">7일 기준</div></div>
 <div class="kpi"><small>7일 환산 매출</small><strong>$6,313.68</strong><div class="sub">$9.99 × 632</div></div>
 <div class="kpi"><small>금주 최고 지점</small><strong>MET · 199개</strong><div class="sub">31.5%</div></div>
 <div class="kpi"><small>금주 최고 판매일</small><strong>9/20 · 124개</strong><div class="sub">일요일</div></div>
 </div>
 
-<section class="panel"><h2>금주 판매 퍼포먼스</h2><div class="desc">9/20–9/26 실제 POS 집계. 일요일–토요일 7일 완결주.</div>
+<section class="panel"><h2>금주 판매 퍼포먼스</h2><div class="desc">9/27–10/3 실제 POS 집계. 일요일–토요일 7일 완결주.</div>
 <div class="grid2">
-<div class="box"><div class="title">6월 이후 주간 총 판매 추이</div><div class="desc">마지막 9/20은 9/20–9/26 완결주</div><div class="toggle"><button class="on" data-c="weekly" data-m="qty">판매갯수</button><button data-c="weekly" data-m="sales">판매금액</button></div><div id="weekly" class="chart"></div><div id="weeklyLegend" class="legend"></div></div>
+<div class="box"><div class="title">6월 이후 주간 총 판매 추이</div><div class="desc">마지막 9/20은 9/27–10/3 완결주</div><div class="toggle"><button class="on" data-c="weekly" data-m="qty">판매갯수</button><button data-c="weekly" data-m="sales">판매금액</button></div><div id="weekly" class="chart"></div><div id="weeklyLegend" class="legend"></div></div>
 <div class="box"><div class="title">지점별 전주 완결 vs 금주 7일 판매</div><div class="desc">동일 7일 기준 비교</div><div class="toggle"><button class="on" data-c="branch" data-m="qty">판매갯수</button><button data-c="branch" data-m="sales">판매금액</button></div><div id="branch" class="chart"></div><div id="branchLegend" class="legend"></div></div>
-<div class="box"><div class="title">금주 일별 지점 추이 · 9/20–9/26</div><div class="desc">레전드/선/포인트 클릭 → 선택 지점 포커스</div><div class="toggle"><button class="on" data-c="daily" data-m="qty">판매갯수</button><button data-c="daily" data-m="sales">판매금액</button></div><div id="daily" class="chart"></div><div id="legend" class="legend"></div></div>
+<div class="box"><div class="title">금주 일별 지점 추이 · 9/27–10/3</div><div class="desc">레전드/선/포인트 클릭 → 선택 지점 포커스</div><div class="toggle"><button class="on" data-c="daily" data-m="qty">판매갯수</button><button data-c="daily" data-m="sales">판매금액</button></div><div id="daily" class="chart"></div><div id="legend" class="legend"></div></div>
 <div class="box"><div class="title">금주 지점별 7일 집계</div><table><thead><tr><th>지점</th><th>전주 7일</th><th>금주 7일</th><th>금주 비중</th><th>금주 금액</th></tr></thead><tbody id="tbl"></tbody></table><div class="desc" style="margin-top:8px">* 콜라 커버리지 = 8801 등록수 ÷ (한치킨 판매수량 ÷ 2). 실제 증정률이 아닌 이론상 최대 증정기회 대비 POS 등록 지표.</div></div>
 </div>
 <div class="ins">
@@ -38,8 +38,8 @@
 <section class="panel"><h2>콜라·생수 증정 트래킹</h2>
 <div class="desc">이번 주 전사 확대: 한치킨 2개 구매 시 콜라 증정. 생수 코드는 한치킨 1개 구매 시 증정용. 아래 수량은 실제 증정량이 아니라 POS에 등록된 증정 코드 수량.</div>
 <div class="promoGrid">
-<div class="promoCard"><small>콜라 코드 등록</small><strong>32건</strong><div class="sub">9/20–9/26</div></div>
-<div class="promoCard"><small>생수 코드 등록</small><strong>68건</strong><div class="sub">9/20–9/26</div></div>
+<div class="promoCard"><small>콜라 코드 등록</small><strong>32건</strong><div class="sub">9/27–10/3</div></div>
+<div class="promoCard"><small>생수 코드 등록</small><strong>68건</strong><div class="sub">9/27–10/3</div></div>
 <div class="promoCard"><small>LGY 콜라 등록</small><strong>19건</strong><div class="sub">전체 콜라 등록의 59.4%</div></div>
 <div class="promoCard"><small>한치킨 판매</small><strong>632개</strong><div class="sub">동일 7일</div></div>
 </div>
@@ -65,15 +65,15 @@
 
 </div>
 <div id="fishView" class="view">
-<section class="hero fishHero"><h1 class="heroTitle">붕어빵 판매 분석</h1><p>한남 붕어빵 전지점 통합 · 2026-09-20–09-26</p></section>
-<div class="fishCallout">상시운영 요망 · 전지점 주간 판매금액 기준으로 운영성과 관리.</div>
+<section class="hero fishHero"><h1 class="heroTitle">붕어빵 판매 분석</h1><p>한남 붕어빵 전지점 통합 · 2026-09-27–10-03</p></section>
+<div class="fishCallout">상시운영 요망 · 금주 판매금액 $9,345.12 · 전주 $7,157.61 대비 +30.6%.</div>
 <div class="alertZero"><span class="lights">🚨</span><strong>YAL 온장고 판매 가능 여부 검토</strong><div class="sub" style="margin-top:6px;color:#ffd1d4">YAL · 온장고 활용 판매 가능 여부 검토.</div></div>
 <div class="kpis">
-<div class="kpi fishKpi"><small>주간 판매금액</small><strong>$7,157.61</strong><div class="sub">전지점 통합</div></div>
-<div class="kpi fishKpi"><small>일평균 판매금액</small><strong>$1,022.52</strong><div class="sub">7일 기준</div></div>
-<div class="kpi fishKpi"><small>LGY 판매금액</small><strong>$2,113.79</strong><div class="sub">29.5%</div></div>
-<div class="kpi fishKpi"><small>BBY 판매금액</small><strong>$2,049.03</strong><div class="sub">28.6%</div></div>
-<div class="kpi fishKpi"><small>MET 판매금액</small><strong>$1,523.15</strong><div class="sub">21.3%</div></div>
+<div class="kpi fishKpi"><small>금주 판매금액</small><strong>$9,345.12</strong><div class="sub">9/27–10/3</div></div>
+<div class="kpi fishKpi"><small>전주 대비</small><strong>+30.6%</strong><div class="sub">$7,157.61 → $9,345.12</div></div>
+<div class="kpi fishKpi"><small>금주 1위</small><strong>SRY $2,487.15</strong><div class="sub">26.6%</div></div>
+<div class="kpi fishKpi"><small>BBY</small><strong>$2,436.72</strong><div class="sub">26.1%</div></div>
+<div class="kpi fishKpi"><small>일평균</small><strong>$1,335.02</strong><div class="sub">7일 기준</div></div>
 </div>
 <section class="panel fishPanel"><h2>주간 판매 퍼포먼스</h2><div class="desc">전지점 일별 실제 POS 판매금액 기준 분석.</div>
 <div class="grid2">
@@ -83,8 +83,8 @@
 <tr><td><b>합계</b></td><td><b>$7,157.61</b></td><td><b>100%</b></td><td><b>$1022.52</b></td></tr></tbody></table></div>
 </div>
 <div class="ins">
-<div style="border-left-color:#d99032"><b>금액 기준 핵심 지점</b><br>LGY $2,113.79, BBY $2,049.03, MET $1,523.15 순.</div>
-<div style="border-left-color:#66d58b"><b>전지점 주간 매출</b><br>주간 합계 $7,157.61, 일평균 $1,022.52.</div>
+<div style="border-left-color:#d99032"><b>금주 +30.6%</b><br>$7,157.61 → $9,345.12. $2,187.51 증가.</div>
+<div style="border-left-color:#66d58b"><b>SRY 급성장</b><br>$909.98 → $2,487.15, +173.3%. 금주 1위.</div>
 <div style="border-left-color:#ff656f"><b>YAL 온장고 운영 검토</b><br>YAL 판매금액 $0. 온장고 활용 판매 가능 여부 검토.</div>
 </div>
 <div class="note fishNote"><b>운영 판단</b> · 붕어빵은 판매금액이 아닌 실제 POS 판매금액을 기준으로 관리. 지점별 단가와 PLU 차이를 그대로 반영해 매출 기여도를 비교하고, <b>상시운영 요망</b> 방향으로 관리.</div>
@@ -92,7 +92,7 @@
 <section class="panel fishPanel"><h2>일별 판매금액 상세</h2><table class="fishTable"><thead><tr><th>날짜</th><th>BBY</th><th>SRY</th><th>ROB</th><th>LGY</th><th>YAL</th><th>MET</th><th>합계</th></tr></thead><tbody id="fishTbl"></tbody></table></section>
 <div class="foot">붕어빵 전지점 통합 기준. 지점별 실제 POS 판매금액을 사용하며 판매금액은 붕어빵 분석 화면에서 제외.</div>
 </div>
-<div class="foot">주간 기준: 일요일–토요일. 금주 자료는 9/20–9/26 일요일–토요일 7일 완결주. 한치킨 판매는 선택된 한치킨/윙 품목을 통합. 증정 수량은 POS 코드 8800/8801 등록 수량으로 실제 현장 증정량과 차이가 날 수 있음. 판매금액은 $9.99/개 환산.</div>
+<div class="foot">주간 기준: 일요일–토요일. 금주 자료는 9/27–10/3 일요일–토요일 7일 완결주. 한치킨 판매는 선택된 한치킨/윙 품목을 통합. 증정 수량은 POS 코드 8800/8801 등록 수량으로 실제 현장 증정량과 차이가 날 수 있음. 판매금액은 $9.99/개 환산.</div>
 </div><div id="tip" class="tooltip"></div>
 
 <script>
@@ -138,9 +138,9 @@ function promoChart(){
  promoDays.forEach((d,i)=>{let cx=p.l+g*i+g/2,a=waterDaily[i],b=cokeDaily[i],ya=y(a),yb=y(b);s+=`<rect x="${cx-bw-3}" y="${ya}" width="${bw}" height="${H-p.b-ya}" fill="#5DA9FF" class="hoverable" data-tip="생수 8800"/><rect x="${cx+3}" y="${yb}" width="${bw}" height="${H-p.b-yb}" fill="#FF9B57" class="hoverable" data-tip="콜라 8801"/><text class="val" x="${cx-bw/2-3}" y="${ya-8}" text-anchor="middle">${a}</text><text class="val" x="${cx+bw/2+3}" y="${yb-8}" text-anchor="middle">${b}</text><text class="axis" x="${cx}" y="405" text-anchor="middle">${d}</text>`});el.innerHTML=s+'</svg><div class="legend"><span class="leg"><i class="sw" style="background:#5DA9FF"></i>생수 8800</span><span class="leg"><i class="sw" style="background:#FF9B57"></i>콜라 8801</span></div>'
 }
 
-const fishDays=["9/20 일","9/21 월","9/22 화","9/23 수","9/24 목","9/25 금","9/26 토"];
+const fishDays=["9/27 일","9/28 월","9/29 화","9/30 수","10/1 목","10/2 금","10/3 토"];
 const fishDaily={BBY:[252,114,119,162,129,218,237],SRY:[0,0,0,0,8,4,4],ROB:[54,29,25,46,41,11,74],LGY:[1,1,1,3,2,2,2],YAL:[0,0,0,0,0,0,0],MET:[100,71,87,122,101,149,133]};
-const fishColors={BBY:"#d36a43",SRY:"#5f79d5",ROB:"#79b85a",LGY:"#9a68ad",YAL:"#d5a23a",MET:"#4f9db6"}; const fishAmount={BBY:[419.48,189.78,198.07,269.54,214.73,362.90,394.53],SRY:[0,0,0,0,312.98,230,367],ROB:[106.46,57.21,55.71,91.54,81.59,21.89,147.26],LGY:[376.35,231.09,260.33,234.03,339.68,366.19,306.12],YAL:[0,0,0,0,0,0,0],MET:[199.64,141.73,173.69,243.54,201.61,297.45,265.49]}; let fishMode="sales",fishBarMode="sales";
+const fishColors={BBY:"#d36a43",SRY:"#5f79d5",ROB:"#79b85a",LGY:"#9a68ad",YAL:"#d5a23a",MET:"#4f9db6"}; const fishAmount={BBY:[475.82,259.88,283.06,437.59,198.23,462.62,319.52],SRY:[508,267,300.05,403,408.10,276,325],ROB:[88.55,147.41,121.51,127.36,109.45,75.22,70.19],LGY:[295.79,219.92,308.56,478.29,278.96,261.29,196.28],YAL:[0,0,0,0,0,0,0],MET:[227.58,210.94,228.85,258.70,177.11,282.58,256.71]}; let fishMode="sales",fishBarMode="sales";
 function fishBars(){
  let el=document.getElementById("fishBranch"),W=900,H=430,p={l:70,r:30,t:35,b:60},labs=["BBY","MET","ROB","SRY","LGY","YAL"];
  let vals=labs.map(st=>fishAmount[st].reduce((a,b)=>a+b,0)),mx=Math.max(...vals)*1.12||1,g=(W-p.l-p.r)/labs.length,bw=70,y=v=>p.t+(mx-v)/mx*(H-p.t-p.b),s='<svg viewBox="0 0 900 430">';
@@ -152,7 +152,7 @@ function renderFish(){
  document.getElementById("fishTbl").innerHTML=fishDays.map((d,i)=>{let vals=Object.fromEntries(Object.keys(fishAmount).map(s=>[s,fishAmount[s][i]])),t=Object.values(vals).reduce((a,b)=>a+b,0);return `<tr><td><b>${d}</b></td><td>${vals.BBY.toFixed(2)}</td><td>${vals.SRY.toFixed(2)}</td><td>${vals.ROB.toFixed(2)}</td><td>${vals.LGY.toFixed(2)}</td><td>${vals.YAL.toFixed(2)}</td><td>${vals.MET.toFixed(2)}</td><td><b>${t.toFixed(2)}</b></td></tr>`}).join("");
 }
 function render(){
- line("weekly",weeks,{TOTAL:wt},{TOTAL:"#66b3ff"},mode.weekly);bars();line("daily",days,daily,C,mode.daily,true);promoChart(); document.getElementById("weeklyLegend").innerHTML=`<span class="leg"><i class="sw" style="background:#66b3ff"></i>전점 통합 판매</span>`; document.getElementById("branchLegend").innerHTML=`<span class="leg"><i class="sw" style="background:#56718f"></i>전주 9/13–9/19</span><span class="leg"><i class="sw" style="background:#66b3ff"></i>금주 9/20–9/26</span>`;
+ line("weekly",weeks,{TOTAL:wt},{TOTAL:"#66b3ff"},mode.weekly);bars();line("daily",days,daily,C,mode.daily,true);promoChart(); document.getElementById("weeklyLegend").innerHTML=`<span class="leg"><i class="sw" style="background:#66b3ff"></i>전점 통합 판매</span>`; document.getElementById("branchLegend").innerHTML=`<span class="leg"><i class="sw" style="background:#56718f"></i>전주 9/13–9/19</span><span class="leg"><i class="sw" style="background:#66b3ff"></i>금주 9/27–10/3</span>`;
  document.getElementById("legend").innerHTML=stores.map(s=>`<span class="leg" data-st="${s}"><i class="sw" style="background:${C[s]}"></i>${s}</span>`).join("");
  document.querySelectorAll("#legend .leg").forEach(n=>n.onclick=()=>{focus=focus===n.dataset.st?null:n.dataset.st;render()});
  document.querySelectorAll("#daily [data-st],#legend [data-st]").forEach(n=>n.classList.toggle("dim",!!focus&&n.dataset.st!==focus));
