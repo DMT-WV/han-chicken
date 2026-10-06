@@ -8,9 +8,11 @@
 .productIcon{display:inline-flex;align-items:center;justify-content:center;width:58px;height:58px;border-radius:16px;margin-right:12px;vertical-align:middle;font-size:38px;line-height:1;background:#ffffff12;border:1px solid #ffffff24;filter:drop-shadow(0 4px 8px #0005)}.fishIcon{font-size:48px;width:68px;height:68px;background:#f2b85f22;border-color:#f2b85f66}.heroTitle{display:flex;align-items:center}.fishMark{display:inline-flex;align-items:center;gap:8px}.fishShape{display:inline-block;font-size:44px;transform:scaleX(1.15);filter:sepia(1) saturate(2.4) hue-rotate(345deg) brightness(1.15)}
 
 .alertZero{margin:14px 0;background:linear-gradient(135deg,#471719,#2a1115);border:2px solid #ff656f;border-radius:16px;padding:17px 20px;box-shadow:0 0 24px #ff4b5540}.alertZero strong{color:#ff7d86;font-size:22px}.alertZero .lights{font-size:24px;margin-right:8px}.zeroRow td{background:#3a171b;color:#ffd4d7}.zeroBadge{display:inline-block;background:#ff5f69;color:#24070a;padding:5px 9px;border-radius:999px;font-weight:950}
+
+.monthHero{background:linear-gradient(135deg,#142f4c,#244f70)!important}.monthNotice{background:#16273b;border:1px solid #46627e;border-radius:14px;padding:15px 18px;margin:14px 0;color:#dce8f4;line-height:1.6}.monthGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}.monthCard{background:#0a1728;border:1px solid #294563;border-radius:15px;padding:17px}.monthCard strong{display:block;font-size:26px;margin-top:5px}@media(max-width:1000px){.monthGrid{grid-template-columns:1fr}}
 </style></head><body><div class="page">
 <section class="hero"><h1>주간 판매 분석 대시보드</h1><p>2026-09-27–10-03 · 일요일–토요일 7일 완결주</p></section>
-<div class="tabs"><button class="tab on" data-view="chickenView">한치킨</button><button class="tab fish" data-view="fishView">붕어빵</button></div>
+<div class="tabs"><button class="tab on" data-view="chickenView">한치킨</button><button class="tab fish" data-view="fishView">붕어빵</button><button class="tab" data-view="monthView">9월 월간분석</button></div>
 <div id="chickenView" class="view on">
 <section class="hero"><h1 class="heroTitle"><span class="productIcon">🍗</span>한치킨 주간 판매 보고서</h1><p>한치킨 + 윙 통합 기준 · 주간 기준 일요일–토요일 · 금주 2026-09-27–10-03</p></section>
 
@@ -91,6 +93,31 @@
 </section>
 <section class="panel fishPanel"><h2>일별 판매금액 상세</h2><table class="fishTable"><thead><tr><th>날짜</th><th>BBY</th><th>SRY</th><th>ROB</th><th>LGY</th><th>YAL</th><th>MET</th><th>합계</th></tr></thead><tbody id="fishTbl"></tbody></table></section>
 <div class="foot">붕어빵 전지점 통합 기준. 지점별 실제 POS 판매금액을 사용하며 판매수량은 붕어빵 분석 화면에서 제외.</div>
+</div>
+<div id="monthView" class="view">
+<section class="hero monthHero"><h1>9월 월간분석</h1><p>2026년 9월 · 전지점 월간 성과 리뷰</p></section>
+<div class="monthNotice"><b>월간 집계 준비 완료</b> · 현재 확보된 주간·일별 POS 데이터만 표시하며, 9/1–9/30 전체 원자료가 없는 항목은 임의 추정하지 않음. 전체 POS 자료 반영 시 월 합계·지점별 비중·주차별 변곡·프로모션 효과까지 확정.</div>
+<section class="panel"><h2>한치킨 · 9월 흐름</h2>
+<div class="monthGrid">
+<div class="monthCard"><small>9/13–9/19</small><strong>818개</strong><div class="sub">확정 주간</div></div>
+<div class="monthCard"><small>9/20–9/26</small><strong>632개</strong><div class="sub">전주 대비 -22.7%</div></div>
+<div class="monthCard"><small>9/27–9/30</small><strong>부분 집계</strong><div class="sub">10/1–10/3과 분리 필요</div></div>
+</div>
+<div class="note"><b>월간 관찰</b> · 9월 중순 818개에서 9/20–9/26 632개로 하락. 9/27 이후에는 다음 완결주 662개로 반등했으나 10월 1–3일이 포함되므로 9월 월합계에는 분리 반영해야 함.</div>
+</section>
+<section class="panel fishPanel"><h2>붕어빵 · 9월 판매금액</h2>
+<div class="monthGrid">
+<div class="monthCard"><small>9/20–9/26</small><strong>$7,157.61</strong><div class="sub">실제 POS 판매금액</div></div>
+<div class="monthCard"><small>분석 기준</small><strong>판매금액 Only</strong><div class="sub">판매수량 지표 제외</div></div>
+<div class="monthCard"><small>YAL</small><strong>$0</strong><div class="sub">해당 확보 구간</div></div>
+</div>
+<div class="note fishNote"><b>월간 집계 원칙</b> · 붕어빵은 실제 POS 판매금액만 사용. 9/1–9/19 자료가 확보되기 전에는 9월 전체 매출을 추정하지 않음.</div>
+</section>
+<section class="panel"><h2>9월 월간분석 최종 구성</h2><div class="ins">
+<div><b>01 · 월 총괄</b><br>총 판매·실매출·일평균·주차별 흐름.</div>
+<div><b>02 · 지점 분석</b><br>BBY·SRY·ROB·LGY·YAL·MET 구성비와 성장/하락.</div>
+<div><b>03 · 운영 인사이트</b><br>한치킨/윙 구성, 증정 트래킹, 붕어빵 금액성과, 관리 지점.</div>
+</div></section>
 </div>
 <div class="foot">주간 기준: 일요일–토요일. 금주 자료는 9/27–10/3 일요일–토요일 7일 완결주. 한치킨 판매는 선택된 한치킨/윙 품목을 통합. 증정 수량은 POS 코드 8800/8801 등록 수량으로 실제 현장 증정량과 차이가 날 수 있음. 판매금액은 $9.99/개 환산.</div>
 </div><div id="tip" class="tooltip"></div>
