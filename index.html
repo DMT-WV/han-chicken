@@ -10,6 +10,7 @@
 .alertZero{margin:14px 0;background:linear-gradient(135deg,#471719,#2a1115);border:2px solid #ff656f;border-radius:16px;padding:17px 20px;box-shadow:0 0 24px #ff4b5540}.alertZero strong{color:#ff7d86;font-size:22px}.alertZero .lights{font-size:24px;margin-right:8px}.zeroRow td{background:#3a171b;color:#ffd4d7}.zeroBadge{display:inline-block;background:#ff5f69;color:#24070a;padding:5px 9px;border-radius:999px;font-weight:950}
 
 .monthHero{background:linear-gradient(135deg,#142f4c,#244f70)!important}.monthNotice{background:#16273b;border:1px solid #46627e;border-radius:14px;padding:15px 18px;margin:14px 0;color:#dce8f4;line-height:1.6}.monthGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}.monthCard{background:#0a1728;border:1px solid #294563;border-radius:15px;padding:17px}.monthCard strong{display:block;font-size:26px;margin-top:5px}@media(max-width:1000px){.monthGrid{grid-template-columns:1fr}}
+#fishDaily .pt{stroke:#fff;stroke-width:2;r:6}#fishDaily .series{stroke-width:4.5}
 </style></head><body><div class="page">
 <section class="hero"><h1>주간 판매 분석 대시보드</h1><p>2026-09-27–10-03 · 일요일–토요일 7일 완결주</p></section>
 <div class="tabs"><button class="tab on" data-view="chickenView">한치킨</button><button class="tab fish" data-view="fishView">붕어빵</button><button class="tab" data-view="monthView">9월 월간분석</button></div>
@@ -151,10 +152,10 @@ function tipBind(root){
  });
 }
 function line(id,labels,series,colors,m,clickable=false){
- let el=document.getElementById(id),W=900,H=430,p={l:65,r:28,t:30,b:62},all=Object.values(series).flat().map(v=>V(v,m)),mx=Math.max(...all,1)*1.18,x=i=>p.l+i*(W-p.l-p.r)/Math.max(1,labels.length-1),y=v=>p.t+(mx-v)/mx*(H-p.t-p.b),s='<svg viewBox="0 0 900 430">';
+ let el=document.getElementById(id),W=900,H=430,p={l:65,r:28,t:30,b:62},all=Object.values(series).flat().map(v=>(id==="fishDaily"?v:V(v,m))),mx=Math.max(...all,1)*1.18,x=i=>p.l+i*(W-p.l-p.r)/Math.max(1,labels.length-1),y=v=>p.t+(mx-v)/mx*(H-p.t-p.b),s='<svg viewBox="0 0 900 430">';
  for(let i=0;i<=5;i++){let yy=p.t+i*(H-p.t-p.b)/5;s+=`<line class="grid" x1="${p.l}" x2="${W-p.r}" y1="${yy}" y2="${yy}"/>`}
  labels.forEach((d,i)=>s+=`<text class="axis" x="${x(i)}" y="405" text-anchor="middle">${d}</text>`);
- Object.entries(series).forEach(([st,a])=>{let va=a.map(v=>V(v,m)),pts=va.map((q,i)=>`${x(i)},${y(q)}`).join(" ");s+=`<polyline data-st="${st}" class="series" points="${pts}" fill="none" stroke="${colors[st]||"#66b3ff"}" stroke-width="4"/>`;va.forEach((q,i)=>{let shown=m==="sales"?"$"+Math.round(q):Math.round(q),tip=`${st} · ${labels[i]} · ${shown}`;s+=`<circle data-st="${st}" data-tip="${tip}" class="pt hoverable" cx="${x(i)}" cy="${y(q)}" r="5" fill="${colors[st]||"#66b3ff"}"/>`;if(labels.length<=7||i>=va.length-2)s+=`<text data-st="${st}" class="val" x="${x(i)}" y="${y(q)-11}" text-anchor="middle">${shown}</text>`})});
+ Object.entries(series).forEach(([st,a])=>{let va=a.map(v=>(id==="fishDaily"?v:V(v,m))),pts=va.map((q,i)=>`${x(i)},${y(q)}`).join(" ");s+=`<polyline data-st="${st}" class="series" points="${pts}" fill="none" stroke="${colors[st]||"#66b3ff"}" stroke-width="4"/>`;va.forEach((q,i)=>{let shown=m==="sales"?"$"+Math.round(q):Math.round(q),tip=`${st} · ${labels[i]} · ${shown}`;s+=`<circle data-st="${st}" data-tip="${tip}" class="pt hoverable" cx="${x(i)}" cy="${y(q)}" r="5" fill="${colors[st]||"#66b3ff"}"/>`;if(labels.length<=7||i>=va.length-2)s+=`<text data-st="${st}" class="val" x="${x(i)}" y="${y(q)-11}" text-anchor="middle">${shown}</text>`})});
  el.innerHTML=s+"</svg>";tipBind(el);if(clickable)el.querySelectorAll("[data-st]").forEach(n=>n.onclick=()=>{focus=focus===n.dataset.st?null:n.dataset.st;render()})
 }
 function bars(){
